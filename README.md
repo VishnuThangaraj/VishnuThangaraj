@@ -32,7 +32,7 @@
       </ul>
     </td>
     <td width="40%">
-      <img src="https://raw.githubusercontent.com/7io/7io/main/images/developer.gif" width="100%" />
+      <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%" />
     </td>
   </tr>
 </table>
