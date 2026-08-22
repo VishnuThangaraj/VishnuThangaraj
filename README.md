@@ -1,25 +1,32 @@
 <div align="center">
 
-  <!-- ==================== HEADER BANNER ==================== -->
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0,2,24,30&height=220&section=header&text=Vishnu%20Thangaraj&fontSize=42&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=Full-Stack%20(MERN%20%26%20FARM)%20%E2%80%A2%20Android%20%E2%80%A2%20Java%20Engineer&descSize=18&descAlignY=62" width="100%" alt="Header Banner" />
+  <!-- ==================== DYNAMIC LIQUID GLASS HERO HEADER ==================== -->
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&custom_colors=38BDF8,6366F1,A855F7&height=120&section=header&text=VISHNU%20THANGARAJ&fontSize=42&fontColor=ffffff&fontAlignY=38&desc=Full-Stack%20%E2%80%A2%20Android%20%E2%80%A2%20Java%20Distributed%20Systems&descSize=16&descAlignY=62&descColor=e0f2fe">
+    <source media="(prefers-color-scheme: light)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&custom_colors=0284C7,4F46E5,9333EA&height=120&section=header&text=VISHNU%20THANGARAJ&fontSize=42&fontColor=ffffff&fontAlignY=38&desc=Full-Stack%20%E2%80%A2%20Android%20%E2%80%A2%20Java%20Distributed%20Systems&descSize=16&descAlignY=62&descColor=ffffff">
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&custom_colors=38BDF8,6366F1,A855F7&height=120&section=header&text=VISHNU%20THANGARAJ&fontSize=42&fontColor=ffffff&fontAlignY=38&desc=Full-Stack%20%E2%80%A2%20Android%20%E2%80%A2%20Java%20Distributed%20Systems&descSize=16&descAlignY=62&descColor=e0f2fe" width="100%" alt="Liquid Glass Header Banner" />
+  </picture>
 
   <br>
 
-  <!-- ==================== DYNAMIC TYPING ANIMATION ==================== -->
-  <a href="https://git.io/typing-svg">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=20&duration=3000&pause=1000&color=38BDF8&center=true&vCenter=true&width=700&lines=Full-Stack+Engineer+(MERN+%26+FARM+Stacks);Native+Android+App+Developer;Java+%26+Distributed+Backend+Systems;Building+Performant%2C+Clean-Architecture+Software" alt="Typing SVG" />
-  </a>
+  <!-- ==================== DYNAMIC TYPING HUD ==================== -->
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=21&duration=2800&pause=1000&color=38BDF8&center=true&vCenter=true&width=850&height=45&lines=%E2%9C%A8+Architecting+Scalable+Full-Stack+Web+Platforms+(MERN+%26+FARM);%F0%9F%93%B1+Crafting+High-Performance+Native+Android+Apps+(Kotlin+%26+Java);%E2%98%95+Engineering+Distributed+Enterprise+Backends+%26+Microservices;%F0%9F%92%8E+Building+Modern%2C+Liquid-Clean%2C+Ultra-Fast+Software">
+    <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=21&duration=2800&pause=1000&color=0969DA&center=true&vCenter=true&width=850&height=45&lines=%E2%9C%A8+Architecting+Scalable+Full-Stack+Web+Platforms+(MERN+%26+FARM);%F0%9F%93%B1+Crafting+High-Performance+Native+Android+Apps+(Kotlin+%26+Java);%E2%98%95+Engineering+Distributed+Enterprise+Backends+%26+Microservices;%F0%9F%92%8E+Building+Modern%2C+Liquid-Clean%2C+Ultra-Fast+Software">
+    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=21&duration=2800&pause=1000&color=38BDF8&center=true&vCenter=true&width=850&height=45&lines=%E2%9C%A8+Architecting+Scalable+Full-Stack+Web+Platforms+(MERN+%26+FARM);%F0%9F%93%B1+Crafting+High-Performance+Native+Android+Apps+(Kotlin+%26+Java);%E2%98%95+Engineering+Distributed+Enterprise+Backends+%26+Microservices;%F0%9F%92%8E+Building+Modern%2C+Liquid-Clean%2C+Ultra-Fast+Software" alt="Dynamic Typing HUD" />
+  </picture>
 
-  <br><br>
+  <br>
 
-  <!-- ==================== STATUS & BADGES ==================== -->
+  <!-- ==================== FROSTED STATUS PILLS ==================== -->
   <p>
-    <img src="https://img.shields.io/badge/Status-🟢_Open_to_Opportunities-00C853?style=for-the-badge&logo=statuspage&logoColor=white" alt="Status" />
-    <img src="https://img.shields.io/badge/Focus-Full--Stack_%7C_Android_%7C_Java-38BDF8?style=for-the-badge&logo=codeforces&logoColor=white" alt="Focus" />
-    <img src="https://img.shields.io/badge/Architecture-Clean_%26_Scalable-6366F1?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Architecture" />
+    <img src="https://img.shields.io/badge/STATUS-🟢_AVAILABLE_FOR_ROLES-00C853?style=for-the-badge&logo=statuspage&logoColor=white" alt="Status" />
+    <img src="https://img.shields.io/badge/CORE_FOCUS-FULL--STACK_%7C_ANDROID_%7C_JAVA-38BDF8?style=for-the-badge&logo=codeforces&logoColor=white" alt="Focus" />
+    <img src="https://img.shields.io/badge/SYSTEM_DESIGN-CLEAN_ARCHITECTURE-6366F1?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Architecture" />
+    <img src="https://img.shields.io/badge/TELEMETRY-HIGH_VELOCITY-A855F7?style=for-the-badge&logo=speedtest&logoColor=white" alt="Telemetry" />
   </p>
 
-  <!-- ==================== SOCIAL / CONNECT PILLS ==================== -->
+  <!-- ==================== FLOATING GLASS SOCIAL PILLS ==================== -->
   <p>
     <a href="https://linkedin.com/in/vishnuthangaraj">
       <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
@@ -34,319 +41,93 @@
     </a>
   </p>
 
-  <!-- ==================== QUICK JUMP NAVIGATION ==================== -->
+  <!-- ==================== SYNCHRONIZED GLASS HUD NAVIGATION ==================== -->
   <p>
-    <code><a href="#-developer-profile">🚀 Profile</a></code> •
-    <code><a href="#-core-specialization-pillars">🎯 Pillars</a></code> •
-    <code><a href="#-featured-projects--repositories">💼 Projects</a></code> •
-    <code><a href="#-technical-arsenal">🛠️ Arsenal</a></code> •
-    <code><a href="#-system-architecture-workflow">📐 Architecture</a></code> •
-    <code><a href="#-engineering-practices--design-patterns">🏗️ Best Practices</a></code> •
-    <code><a href="#-algorithmic-mastery--problem-solving">🧠 Problem Solving</a></code> •
-    <code><a href="#-workstation--development-environment">💻 Workstation</a></code> •
-    <code><a href="#-github-analytics--insights">📊 Analytics</a></code> •
-    <code><a href="#-connect--collaborate">📫 Connect</a></code>
+    <code><a href="#-developer-profile">💎 Profile</a></code> &nbsp;✦&nbsp;
+    <code><a href="#-technical-arsenal">🔮 Arsenal</a></code> &nbsp;✦&nbsp;
+    <code><a href="#-system-architecture-workflow">📐 Architecture</a></code> &nbsp;✦&nbsp;
+    <code><a href="#-workstation--development-environment">⚡ Workstation</a></code> &nbsp;✦&nbsp;
+    <code><a href="#-liquid-telemetry--analytics">🌌 Analytics</a></code> &nbsp;✦&nbsp;
+    <code><a href="#-connect--collaborate">✨ Connect</a></code>
   </p>
 
 </div>
 
 ---
 
-### 🚀 Developer Profile
+### 💎 Developer Profile
 
-<table>
-  <tr>
-    <td width="64%" valign="top">
-      <pre>
-<b><span style="color:#38bdf8;">vishnu@workstation</span>:<span style="color:#6366f1;">~</span>$</b> whoami
-&gt; Vishnu Thangaraj — Software Engineer & Full-Stack / Mobile Developer
+```bash
+vishnu@liquid-core:~/systems$ whoami
+> Vishnu Thangaraj — Full-Stack Engineer, Mobile Architect & Distributed Systems Developer
+```
 
-<b><span style="color:#38bdf8;">vishnu@workstation</span>:<span style="color:#6366f1;">~</span>$</b> cat engineering_profile.json
+```json
 {
-  <span style="color:#38bdf8;">"name"</span>: <span style="color:#10b981;">"Vishnu Thangaraj"</span>,
-  <span style="color:#38bdf8;">"roles"</span>: [<span style="color:#10b981;">"Full-Stack Engineer"</span>, <span style="color:#10b981;">"Android Developer"</span>, <span style="color:#10b981;">"Java Backend Developer"</span>],
-  <span style="color:#38bdf8;">"core_frameworks"</span>: {
-    <span style="color:#38bdf8;">"mern"</span>: [<span style="color:#10b981;">"MongoDB"</span>, <span style="color:#10b981;">"Express.js"</span>, <span style="color:#10b981;">"React.js"</span>, <span style="color:#10b981;">"Node.js"</span>],
-    <span style="color:#38bdf8;">"farm"</span>: [<span style="color:#10b981;">"FastAPI"</span>, <span style="color:#10b981;">"React.js"</span>, <span style="color:#10b981;">"MongoDB"</span>, <span style="color:#10b981;">"Python"</span>],
-    <span style="color:#38bdf8;">"mobile"</span>: [<span style="color:#10b981;">"Native Android"</span>, <span style="color:#10b981;">"Java"</span>, <span style="color:#10b981;">"Kotlin"</span>, <span style="color:#10b981;">"Android Studio"</span>],
-    <span style="color:#38bdf8;">"backend"</span>: [<span style="color:#10b981;">"Java (Spring Boot)"</span>, <span style="color:#10b981;">"RESTful APIs"</span>, <span style="color:#10b981;">"Microservices"</span>]
-  },
-  <span style="color:#38bdf8;">"databases"</span>: [<span style="color:#10b981;">"MongoDB"</span>, <span style="color:#10b981;">"MySQL"</span>, <span style="color:#10b981;">"Redis"</span>],
-  <span style="color:#38bdf8;">"current_focus"</span>: <span style="color:#10b981;">"High-concurrency systems, scalable architecture & clean code"</span>
+  "name": "Vishnu Thangaraj",
+  "title": "Software Development Engineer",
+  "engineering_pillars": [
+    "Modern Full-Stack Platforms (React, Node.js, FastAPI)",
+    "Native Android Ecosystems (Kotlin, Java, MVVM, Room)",
+    "High-Throughput Enterprise Microservices (Spring Boot, Java 21)"
+  ],
+  "persistence_cache": ["MongoDB", "PostgreSQL", "MySQL", "Redis In-Memory"],
+  "core_mantra": "Liquid-smooth UX on the surface, battle-tested resilience under the hood."
 }
-      </pre>
-      <ul>
-        <li>🌐 <strong>Web Engineering:</strong> Architecting responsive single-page applications with <strong>React</strong>, backed by high-throughput REST APIs built with <strong>Express.js</strong> and <strong>FastAPI</strong>.</li>
-        <li>📱 <strong>Mobile Engineering:</strong> Developing native Android apps using <strong>Java</strong>, <strong>Kotlin</strong>, MVVM architecture, and Jetpack components.</li>
-        <li>☕ <strong>Java & Systems:</strong> Designing robust object-oriented systems, enterprise microservices, and database interaction layers with <strong>Spring Boot</strong> and <strong>JPA/Hibernate</strong>.</li>
-        <li>⚡ <strong>Performance & Scalability:</strong> Optimizing API latency, implementing Redis caching layers, and designing clean NoSQL/SQL schemas.</li>
-      </ul>
-    </td>
-    <td width="36%" align="center" valign="middle">
-      <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="100%" alt="Developer coding animation" />
-    </td>
-  </tr>
-</table>
+```
+
+- 🌐 **Modern Full-Stack Applications:** Engineering responsive, glassmorphic web frontends in **React & Tailwind** backed by asynchronous, low-latency APIs built using **FastAPI** and **Express.js**.
+- 📱 **Native Mobile Architecture:** Crafting robust native Android applications in **Kotlin & Java** leveraging MVVM clean patterns, Jetpack Navigation, LiveData/Flow, Room ORM, and Retrofit.
+- ☕ **Enterprise Systems & Java Backend:** Designing scalable REST microservices and database layers with **Spring Boot**, **JPA/Hibernate**, and secure JWT authentication.
+- ⚡ **Performance Engineering:** Fine-tuning database indexing, sub-millisecond caching with **Redis**, and containerized multi-stage deployments with **Docker**.
 
 ---
 
-### 🎯 Core Specialization Pillars
-
-<table width="100%">
-  <tr>
-    <td width="50%" valign="top">
-      <div align="center">
-        <h3>⚛️ MERN Stack Ecosystem</h3>
-        <p><em>Full-Stack JavaScript/TypeScript Architecture</em></p>
-      </div>
-      <ul>
-        <li><strong>Frontend:</strong> React 18+, Redux Toolkit, Vite, Tailwind CSS, Component Modularization</li>
-        <li><strong>Server Runtime:</strong> Node.js event-driven architecture, Express.js routing & middlewares</li>
-        <li><strong>Database Layer:</strong> MongoDB, Mongoose ODM, Aggregation pipelines, Indexing</li>
-        <li><strong>Security & Realtime:</strong> JWT authentication, bcrypt hashing, WebSockets</li>
-      </ul>
-      <div align="center">
-        <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" alt="React" />
-        <img src="https://img.shields.io/badge/Redux-593D88?style=flat-square&logo=redux&logoColor=white" alt="Redux" />
-        <img src="https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white" alt="Express" />
-        <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white" alt="Node" />
-        <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB" />
-      </div>
-    </td>
-    <td width="50%" valign="top">
-      <div align="center">
-        <h3>⚡ FARM Stack Architecture</h3>
-        <p><em>High-Performance Asynchronous Python + Modern React</em></p>
-      </div>
-      <ul>
-        <li><strong>API Framework:</strong> FastAPI asynchronous ASGI server, Pydantic type validation</li>
-        <li><strong>Client Integration:</strong> React hooks, Axios/React Query, real-time state synchronization</li>
-        <li><strong>Async Database:</strong> Motor / Beanie ODM for non-blocking MongoDB operations</li>
-        <li><strong>API Documentation:</strong> Interactive OpenAPI / Swagger auto-generated docs</li>
-      </ul>
-      <div align="center">
-        <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI" />
-        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" />
-        <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" alt="React" />
-        <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white" alt="MongoDB" />
-        <img src="https://img.shields.io/badge/Swagger-85EA2D?style=flat-square&logo=swagger&logoColor=black" alt="Swagger" />
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <div align="center">
-        <h3>📱 Native Android Engineering</h3>
-        <p><em>Robust Mobile Client Applications</em></p>
-      </div>
-      <ul>
-        <li><strong>Languages & IDE:</strong> Java for Android, Kotlin, Android Studio Arctic/Koala+</li>
-        <li><strong>UI & Design:</strong> XML Layouts, Material Design 3, View Binding, ConstraintLayout</li>
-        <li><strong>Architecture:</strong> MVVM (Model-View-ViewModel), LiveData, ViewModel, Lifecycle</li>
-        <li><strong>Data & Services:</strong> Room Database (SQLite), Retrofit2 networking, Firebase Auth</li>
-      </ul>
-      <div align="center">
-        <img src="https://img.shields.io/badge/Android_Studio-3DDC84?style=flat-square&logo=android-studio&logoColor=white" alt="Android Studio" />
-        <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat-square&logo=kotlin&logoColor=white" alt="Kotlin" />
-        <img src="https://img.shields.io/badge/Java_Android-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java Android" />
-        <img src="https://img.shields.io/badge/Room_DB-4285F4?style=flat-square&logo=sqlite&logoColor=white" alt="Room DB" />
-        <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black" alt="Firebase" />
-      </div>
-    </td>
-    <td width="50%" valign="top">
-      <div align="center">
-        <h3>☕ Enterprise Java & Backend</h3>
-        <p><em>Object-Oriented Design & Microservice Systems</em></p>
-      </div>
-      <ul>
-        <li><strong>Core Foundations:</strong> Java SE 17/21, OOP Principles, Collections Framework, Multithreading</li>
-        <li><strong>Frameworks:</strong> Spring Boot, Spring MVC, Spring Data JPA, Hibernate ORM</li>
-        <li><strong>API Design:</strong> RESTful API principles, Exception handling, DTO mapping, Validation</li>
-        <li><strong>Build Systems:</strong> Maven, Gradle, Dependency injection & Clean Architecture</li>
-      </ul>
-      <div align="center">
-        <img src="https://img.shields.io/badge/Java_SE-ED8B00?style=flat-square&logo=openjdk&logoColor=white" alt="Java SE" />
-        <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat-square&logo=spring-boot&logoColor=white" alt="Spring Boot" />
-        <img src="https://img.shields.io/badge/Hibernate-59666C?style=flat-square&logo=hibernate&logoColor=white" alt="Hibernate" />
-        <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white" alt="MySQL" />
-        <img src="https://img.shields.io/badge/Maven-C71A36?style=flat-square&logo=apache-maven&logoColor=white" alt="Maven" />
-      </div>
-    </td>
-  </tr>
-</table>
-
----
-
-### 💼 Featured Projects & Repositories
-
-<table width="100%">
-  <tr>
-    <td width="50%" valign="top">
-      <div align="center">
-        <h4>📱 <a href="https://github.com/VishnuThangaraj/Streakly">Streakly — Offline Habit & Streak Tracker</a></h4>
-      </div>
-      <p>
-        A minimal, privacy-centric, ad-free habit tracker engineered for offline-first mobile performance. Features local persistent state, streak mechanics, and smooth UI transitions.
-      </p>
-      <p>
-        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
-        <img src="https://img.shields.io/badge/Mobile-React_Native-61DAFB?style=flat-square&logo=react&logoColor=black" />
-        <img src="https://img.shields.io/badge/Architecture-Offline_First-10B981?style=flat-square" />
-      </p>
-      <div align="center">
-        <a href="https://github.com/VishnuThangaraj/Streakly">
-          <img src="https://img.shields.io/badge/Explore_Repository-181717?style=for-the-badge&logo=github&logoColor=white" alt="Explore Streakly" />
-        </a>
-      </div>
-    </td>
-    <td width="50%" valign="top">
-      <div align="center">
-        <h4>☕ <a href="https://github.com/VishnuThangaraj/Problem-Solving-Java">Problem-Solving Java Engine</a></h4>
-      </div>
-      <p>
-        Comprehensive repository of optimized algorithms, data structures, dynamic programming solutions, and object-oriented system design challenges implemented in clean Java.
-      </p>
-      <p>
-        <img src="https://img.shields.io/badge/Java_SE-ED8B00?style=flat-square&logo=openjdk&logoColor=white" />
-        <img src="https://img.shields.io/badge/Algorithms-Data_Structures-38BDF8?style=flat-square" />
-        <img src="https://img.shields.io/badge/Paradigm-OOP_%26_Clean_Code-6366F1?style=flat-square" />
-      </p>
-      <div align="center">
-        <a href="https://github.com/VishnuThangaraj/Problem-Solving-Java">
-          <img src="https://img.shields.io/badge/Explore_Repository-181717?style=for-the-badge&logo=github&logoColor=white" alt="Explore Problem-Solving Java" />
-        </a>
-      </div>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <div align="center">
-        <h4>⚡ <a href="https://github.com/VishnuThangaraj/Leetcode-Solutions">LeetCode Solutions & Algorithmic Patterns</a></h4>
-      </div>
-      <p>
-        Curated algorithmic solutions in TypeScript and JavaScript covering Two Pointers, Sliding Window, Graph BFS/DFS, Trees, and DP with optimal time and space complexity.
-      </p>
-      <p>
-        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
-        <img src="https://img.shields.io/badge/LeetCode-FFA116?style=flat-square&logo=leetcode&logoColor=black" />
-        <img src="https://img.shields.io/badge/Optimization-O(N)_Efficiency-00C853?style=flat-square" />
-      </p>
-      <div align="center">
-        <a href="https://github.com/VishnuThangaraj/Leetcode-Solutions">
-          <img src="https://img.shields.io/badge/Explore_Repository-181717?style=for-the-badge&logo=github&logoColor=white" alt="Explore Leetcode Solutions" />
-        </a>
-      </div>
-    </td>
-    <td width="50%" valign="top">
-      <div align="center">
-        <h4>🛡️ <a href="https://github.com/VishnuThangaraj/RegEntropy-Compliance_Intelligence">Compliance Intelligence Service</a></h4>
-      </div>
-      <p>
-        High-throughput backend service built with FastAPI and MongoDB for automated policy validation, structured rule enforcement, and real-time claim compliance validation.
-      </p>
-      <p>
-        <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" />
-        <img src="https://img.shields.io/badge/Python_3-3776AB?style=flat-square&logo=python&logoColor=white" />
-        <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white" />
-      </p>
-      <div align="center">
-        <a href="https://github.com/VishnuThangaraj/RegEntropy-Compliance_Intelligence">
-          <img src="https://img.shields.io/badge/Explore_Repository-181717?style=for-the-badge&logo=github&logoColor=white" alt="Explore Compliance Intelligence" />
-        </a>
-      </div>
-    </td>
-  </tr>
-</table>
-
----
-
-### 🛠️ Technical Arsenal
+### 🔮 Technical Arsenal
 
 <div align="center">
+  <p><strong>⚡ Curated Technologies, Stacks, Runtimes & Glass Tooling</strong></p>
   <br>
-  <img src="https://skillicons.dev/icons?i=react,redux,tailwind,vite,html,css,js,ts,bootstrap&perline=9" alt="Frontend Arsenal" />
+
+  <!-- Frontend & UI Layer -->
+  <p><code>🌐 CLIENT & INTERFACE LAYER</code></p>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=react,redux,tailwind,vite,html,css,js,ts,bootstrap&theme=dark&perline=9">
+    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=react,redux,tailwind,vite,html,css,js,ts,bootstrap&theme=light&perline=9">
+    <img src="https://skillicons.dev/icons?i=react,redux,tailwind,vite,html,css,js,ts,bootstrap&perline=9" alt="Frontend Arsenal" />
+  </picture>
   <br><br>
-  <img src="https://skillicons.dev/icons?i=nodejs,express,fastapi,py,java,kotlin,androidstudio,mongodb,mysql&perline=9" alt="Backend and Mobile Arsenal" />
+  
+  <!-- Backend, Mobile & Systems -->
+  <p><code>⚙️ BACKEND, MOBILE & SYSTEMS ENGINE</code></p>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=nodejs,express,fastapi,py,java,kotlin,androidstudio,spring,maven&theme=dark&perline=9">
+    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=nodejs,express,fastapi,py,java,kotlin,androidstudio,spring,maven&theme=light&perline=9">
+    <img src="https://skillicons.dev/icons?i=nodejs,express,fastapi,py,java,kotlin,androidstudio,spring,maven&perline=9" alt="Backend & Mobile Arsenal" />
+  </picture>
   <br><br>
-  <img src="https://skillicons.dev/icons?i=redis,postgres,docker,git,github,postman,linux,bash,npm&perline=9" alt="Databases and DevOps Arsenal" />
+
+  <!-- Databases, DevOps & Cloud Persistence -->
+  <p><code>🗄️ PERSISTENCE, CACHE & INFRASTRUCTURE</code></p>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=mongodb,mysql,postgres,redis,docker,git,github,postman,linux&theme=dark&perline=9">
+    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=mongodb,mysql,postgres,redis,docker,git,github,postman,linux&theme=light&perline=9">
+    <img src="https://skillicons.dev/icons?i=mongodb,mysql,postgres,redis,docker,git,github,postman,linux&perline=9" alt="Databases & DevOps Arsenal" />
+  </picture>
   <br><br>
 </div>
 
 <details>
-<summary><b>🔍 View Comprehensive Matrix & Technology Specifications</b></summary>
+<summary><b>🔍 View Comprehensive Matrix & Technology Specifications (Click to expand)</b></summary>
 <br>
 
-<table width="100%">
-  <thead>
-    <tr>
-      <th width="25%">Category</th>
-      <th width="35%">Technologies & Frameworks</th>
-      <th width="40%">Capabilities & Key Concepts</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><strong>🌐 Frontend & Web</strong></td>
-      <td>
-        <img src="https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB" />
-        <img src="https://img.shields.io/badge/Redux_Toolkit-593D88?style=flat-square&logo=redux&logoColor=white" />
-        <img src="https://img.shields.io/badge/Vite-646CFF?style=flat-square&logo=vite&logoColor=white" />
-        <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=flat-square&logo=tailwind-css&logoColor=white" />
-        <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black" />
-        <img src="https://img.shields.io/badge/TypeScript-3178C6?style=flat-square&logo=typescript&logoColor=white" />
-        <img src="https://img.shields.io/badge/HTML5-E34F26?style=flat-square&logo=html5&logoColor=white" />
-        <img src="https://img.shields.io/badge/CSS3-1572B6?style=flat-square&logo=css3&logoColor=white" />
-      </td>
-      <td>Single Page Apps (SPA), State Management, Responsive Design, Component Lifecycle, Asynchronous UI</td>
-    </tr>
-    <tr>
-      <td><strong>📱 Mobile & Android</strong></td>
-      <td>
-        <img src="https://img.shields.io/badge/Android_Studio-3DDC84?style=flat-square&logo=android-studio&logoColor=white" />
-        <img src="https://img.shields.io/badge/Kotlin-7F52FF?style=flat-square&logo=kotlin&logoColor=white" />
-        <img src="https://img.shields.io/badge/Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white" />
-        <img src="https://img.shields.io/badge/Material_Design-757575?style=flat-square&logo=material-design&logoColor=white" />
-        <img src="https://img.shields.io/badge/Room_DB-4285F4?style=flat-square&logo=sqlite&logoColor=white" />
-        <img src="https://img.shields.io/badge/Firebase-FFCA28?style=flat-square&logo=firebase&logoColor=black" />
-      </td>
-      <td>MVVM Architecture, Jetpack Components, Local SQLite Storage, Retrofit REST Clients, Push Notifications</td>
-    </tr>
-    <tr>
-      <td><strong>⚙️ Backend & APIs</strong></td>
-      <td>
-        <img src="https://img.shields.io/badge/Node.js-339933?style=flat-square&logo=node.js&logoColor=white" />
-        <img src="https://img.shields.io/badge/Express.js-000000?style=flat-square&logo=express&logoColor=white" />
-        <img src="https://img.shields.io/badge/FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" />
-        <img src="https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white" />
-        <img src="https://img.shields.io/badge/Core_Java-ED8B00?style=flat-square&logo=openjdk&logoColor=white" />
-        <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=flat-square&logo=spring-boot&logoColor=white" />
-      </td>
-      <td>RESTful API Architecture, JWT Authentication, Asynchronous Processing, Middleware Design, Microservices</td>
-    </tr>
-    <tr>
-      <td><strong>🗄️ Databases & Storage</strong></td>
-      <td>
-        <img src="https://img.shields.io/badge/MongoDB-47A248?style=flat-square&logo=mongodb&logoColor=white" />
-        <img src="https://img.shields.io/badge/MySQL-4479A1?style=flat-square&logo=mysql&logoColor=white" />
-        <img src="https://img.shields.io/badge/PostgreSQL-4169E1?style=flat-square&logo=postgresql&logoColor=white" />
-        <img src="https://img.shields.io/badge/Redis-DC382D?style=flat-square&logo=redis&logoColor=white" />
-      </td>
-      <td>NoSQL Document Modeling, Relational Schema Normalization, Query Indexing, In-Memory Caching, Transactions</td>
-    </tr>
-    <tr>
-      <td><strong>🛠️ DevOps & Tooling</strong></td>
-      <td>
-        <img src="https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white" />
-        <img src="https://img.shields.io/badge/Git-F05032?style=flat-square&logo=git&logoColor=white" />
-        <img src="https://img.shields.io/badge/GitHub-181717?style=flat-square&logo=github&logoColor=white" />
-        <img src="https://img.shields.io/badge/Postman-FF6C37?style=flat-square&logo=postman&logoColor=white" />
-        <img src="https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black" />
-        <img src="https://img.shields.io/badge/Gradle-02303A?style=flat-square&logo=gradle&logoColor=white" />
-      </td>
-      <td>Containerization, Version Control, API Testing & Documentation, Unix CLI Automation, Dependency Management</td>
-    </tr>
-  </tbody>
-</table>
+| Domain | Technologies & Stacks | Capabilities & Engineering Focus |
+| :--- | :--- | :--- |
+| **🌐 Frontend & Web** | `React` `Redux Toolkit` `Vite` `Tailwind CSS` `JavaScript` `TypeScript` `HTML5` `CSS3` | Single Page Apps (SPA), State Management, Responsive Design, Component Lifecycle, Asynchronous UI, Liquid Glass Aesthetics |
+| **📱 Mobile & Android** | `Android Studio` `Kotlin` `Java` `Material Design` `Room DB` `Firebase` | MVVM Architecture, Jetpack Components, Local SQLite/Room Caching, Retrofit REST Clients, Push Notifications, Background Workers |
+| **⚙️ Backend & APIs** | `Node.js` `Express.js` `FastAPI` `Python` `Core Java` `Spring Boot` | RESTful API Architecture, JWT/OAuth2 Authentication, Asynchronous Processing, Middleware Design, Microservices Ecosystem |
+| **🗄️ Databases & Storage** | `MongoDB` `MySQL` `PostgreSQL` `Redis` | NoSQL Document Modeling, Relational Normalization & Indexing, Query Optimization, In-Memory Caching, ACID Transactions |
+| **🛠️ DevOps & Tooling** | `Docker` `Git` `GitHub` `Postman` `Linux` `Gradle` | Containerization, Version Control & GitFlow, Automated API Testing, Unix CLI Automation, Dependency Management |
 
 </details>
 
@@ -354,198 +135,95 @@
 
 ### 📐 System Architecture Workflow
 
+<div align="center">
+  <p><strong>🌐 End-to-End Enterprise & Liquid-Clean Data Flow</strong></p>
+</div>
+
 ```mermaid
 flowchart LR
-    subgraph Clients["📱 Presentation Layer"]
-        A["⚛️ React.js (Vite / Tailwind)"]
-        B["📱 Android App (Kotlin / Java)"]
+    %% Presentation Tier
+    subgraph Presentation["📱 Presentation & Client Tier"]
+        direction TB
+        Web["⚛️ React.js SPA<br/>(Vite • Tailwind • Redux)"]
+        Mobile["📱 Native Android App<br/>(Kotlin • Java • MVVM)"]
     end
 
-    subgraph Gateway["🛡️ Security & Routing"]
-        C["🔐 API Gateway & JWT Auth"]
+    %% Security & Gateway
+    subgraph Gateway["🛡️ Security & API Gateway"]
+        direction TB
+        Auth["🔐 Reverse Proxy & JWT Auth<br/>(Rate Limiting • CORS • SSL)"]
     end
 
+    %% Microservices Tier
     subgraph Services["⚙️ Backend Microservices"]
-        D["⚡ FastAPI (Python) Service"]
-        E["🚀 Node.js / Express Service"]
-        F["☕ Spring Boot (Java) Service"]
+        direction TB
+        FastAPIService["⚡ FastAPI (Python)<br/>High-Speed Asynchronous API"]
+        NodeService["🚀 Express.js / Node.js<br/>Real-Time Business Logic"]
+        SpringBootService["☕ Spring Boot (Java)<br/>Enterprise Core & Batch Processing"]
     end
 
-    subgraph Data["🗄️ Persistence & Cache Layer"]
-        G[("🍃 MongoDB (NoSQL)")]
-        H[("🐬 MySQL / PostgreSQL")]
-        I[("⚡ Redis Cache")]
+    %% Persistence & Cache
+    subgraph Persistence["🗄️ Persistence & Distributed Cache"]
+        direction TB
+        MongoDB[("🍃 MongoDB<br/>Document Store")]
+        RelationalDB[("🐬 PostgreSQL / MySQL<br/>ACID Relational Data")]
+        RedisCache[("⚡ Redis Cache<br/>In-Memory Sub-millisecond")]
     end
 
-    Clients --> Gateway
-    Gateway --> Services
-    D --> G
-    D --> I
-    E --> G
-    E --> I
-    F --> H
-    F --> I
+    %% Flow Connections
+    Presentation ==> Gateway
+    Gateway ==> Services
+    
+    FastAPIService --> MongoDB
+    FastAPIService --> RedisCache
+    NodeService --> MongoDB
+    NodeService --> RedisCache
+    SpringBootService --> RelationalDB
+    SpringBootService --> RedisCache
 ```
 
 ---
 
-### 🏗️ Engineering Practices & Design Patterns
+### ⚡ Workstation & Development Environment
 
-<table width="100%">
-  <tr>
-    <td width="33%" valign="top">
-      <h4>🏛️ Clean Architecture</h4>
-      <ul>
-        <li><strong>SOLID Principles:</strong> Separation of concerns, Dependency Inversion, and Interface Segregation across Java and TypeScript.</li>
-        <li><strong>Layered Design:</strong> Controller ➔ Service ➔ Repository pattern for decoupled maintainability.</li>
-        <li><strong>DTOs & Validation:</strong> Strict payload typing with Pydantic (FastAPI), Zod (TypeScript), and Jakarta Validation (Spring Boot).</li>
-      </ul>
-    </td>
-    <td width="33%" valign="top">
-      <h4>⚡ Concurrency & Performance</h4>
-      <ul>
-        <li><strong>Async I/O:</strong> Non-blocking event loop in Node.js and async coroutines in FastAPI (ASGI).</li>
-        <li><strong>Java Multithreading:</strong> ExecutorService, thread pools, and concurrent collections for high throughput.</li>
-        <li><strong>Caching Patterns:</strong> Cache-aside and write-through caching using Redis with TTL expiration.</li>
-      </ul>
-    </td>
-    <td width="33%" valign="top">
-      <h4>🔒 Security & Reliability</h4>
-      <ul>
-        <li><strong>Auth Pipelines:</strong> Stateless JWT tokens with refresh token rotation and bcrypt password hashing.</li>
-        <li><strong>Resilience:</strong> Exponential backoff retry policies, rate limiting, and global exception filters.</li>
-        <li><strong>Clean DB Queries:</strong> Indexed MongoDB queries, SQL prepared statements to prevent injection.</li>
-      </ul>
-    </td>
-  </tr>
-</table>
+| 🖥️ Operating System | ⚡ Primary IDEs | 🐚 Shell & CLI | ☕ Runtimes & SDKs | 🛠️ Tools & DevOps |
+| :---: | :---: | :---: | :---: | :---: |
+| `Windows 11 Pro`<br>`Ubuntu / WSL2` | `VS Code`<br>`Android Studio`<br>`IntelliJ IDEA` | `PowerShell 7`<br>`Zsh / Oh-My-Zsh`<br>`Bash CLI` | `JDK 17 / 21 LTS`<br>`Node.js 20+ LTS`<br>`Python 3.11+` | `Docker Engine`<br>`Postman & cURL`<br>`Gradle & Maven` |
 
 ---
 
-### 🧠 Algorithmic Mastery & Problem Solving
-
-<table width="100%">
-  <tr>
-    <td width="60%" valign="top">
-      <p>
-        I treat algorithms and data structure optimization as foundational craft. Regularly practicing algorithmic challenges, optimizing space/time complexity, and designing data pipelines with efficiency in mind.
-      </p>
-      <ul>
-        <li><strong>Primary Languages:</strong> Java SE, TypeScript, Python 3</li>
-        <li><strong>Core Problem Patterns:</strong> Two Pointers, Sliding Window, Fast & Slow Pointers, BFS/DFS Traversal, Dynamic Programming, Binary Search, Monotonic Stack</li>
-        <li><strong>Data Structures:</strong> Self-Balancing Trees, Hash Tables, Heaps/Priority Queues, Graphs, Tries, Disjoint Set (Union-Find)</li>
-      </ul>
-    </td>
-    <td width="40%" align="center" valign="middle">
-      <div align="center">
-        <a href="https://github.com/VishnuThangaraj/Problem-Solving-Java">
-          <img src="https://img.shields.io/badge/Java_DSA-Algorithms-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" alt="Java Algorithms" />
-        </a>
-        <br><br>
-        <a href="https://github.com/VishnuThangaraj/Leetcode-Solutions">
-          <img src="https://img.shields.io/badge/LeetCode_Solutions-TypeScript-FFA116?style=for-the-badge&logo=leetcode&logoColor=black" alt="Leetcode Solutions" />
-        </a>
-      </div>
-    </td>
-  </tr>
-</table>
-
----
-
-### 💻 Workstation & Development Environment
-
-<table width="100%">
-  <tr>
-    <td align="center" width="20%">
-      <strong>Operating System</strong><br>
-      <code>Windows / Linux (Ubuntu)</code>
-    </td>
-    <td align="center" width="20%">
-      <strong>Primary IDEs</strong><br>
-      <code>VS Code / Android Studio / IntelliJ</code>
-    </td>
-    <td align="center" width="20%">
-      <strong>Shell & Terminal</strong><br>
-      <code>PowerShell / Zsh / Bash</code>
-    </td>
-    <td align="center" width="20%">
-      <strong>Runtimes & SDKs</strong><br>
-      <code>JDK 17/21 • Node.js 20+ • Python 3.11+</code>
-    </td>
-    <td align="center" width="20%">
-      <strong>API & Build Tools</strong><br>
-      <code>Postman • Docker • Gradle • Maven</code>
-    </td>
-  </tr>
-</table>
-
----
-
-### 📊 GitHub Analytics & Insights
+### 🌌 Liquid Telemetry & Analytics
 
 <div align="center">
+
+  <!-- ==================== LIQUID GLASS PROFILE SUMMARY HUD ==================== -->
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=VishnuThangaraj&theme=tokyonight">
+    <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=VishnuThangaraj&theme=default">
+    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=VishnuThangaraj&theme=tokyonight" alt="GitHub Profile Details Card" width="100%" />
+  </picture>
+
+  <br><br>
+
+  <!-- ==================== DUAL STATS & STREAK CARDS ==================== -->
   <table width="100%">
     <tr>
       <td width="50%" align="center">
         <a href="https://github.com/VishnuThangaraj">
-          <img src="https://github-stats-extended.vercel.app/api?username=VishnuThangaraj&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=58a6ff&icon_color=38bdf8&text_color=c9d1d9" alt="Vishnu's GitHub Stats" width="100%" />
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api?username=VishnuThangaraj&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=38bdf8&icon_color=6366f1&text_color=e2e8f0">
+            <source media="(prefers-color-scheme: light)" srcset="https://github-stats-extended.vercel.app/api?username=VishnuThangaraj&show_icons=true&theme=default&hide_border=false&border_color=d0d7de&bg_color=ffffff&title_color=0969da&icon_color=0969da&text_color=1f2328">
+            <img src="https://github-stats-extended.vercel.app/api?username=VishnuThangaraj&show_icons=true&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=38bdf8&icon_color=6366f1&text_color=e2e8f0" alt="Vishnu's GitHub Stats" width="100%" />
+          </picture>
         </a>
       </td>
       <td width="50%" align="center">
         <a href="https://github.com/VishnuThangaraj">
-          <img src="https://streak-stats.demolab.com/?user=VishnuThangaraj&theme=tokyonight&hide_border=true&background=0d1117&stroke=30363d&ring=38bdf8&fire=f97316&currStreakLabel=38bdf8" alt="Vishnu's Streak Stats" width="100%" />
-        </a>
-      </td>
-    </tr>
-  </table>
-</div>
-
-<br>
-
-<div align="center">
-  <table width="100%">
-    <tr>
-      <td width="48%" align="center">
-        <a href="https://github.com/VishnuThangaraj">
-          <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=VishnuThangaraj&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&hide=jupyter%20notebook" alt="Top Languages" width="100%" />
-        </a>
-      </td>
-      <td width="52%" align="center">
-        <a href="https://github.com/VishnuThangaraj">
-          <img src="https://github-readme-activity-graph.vercel.app/graph?username=VishnuThangaraj&theme=tokyo-night&bg_color=0d1117&color=58a6ff&line=38bdf8&point=f97316&hide_border=true" alt="Contribution Activity Graph" width="100%" />
-        </a>
-      </td>
-    </tr>
-  </table>
-</div>
-
----
-
-### 📫 Connect & Collaborate
-
-<div align="center">
-
-  <table>
-    <tr>
-      <td align="center" width="33%">
-        <h4>💼 Professional Network</h4>
-        <p>Let's connect and discuss software architecture, web development, and mobile solutions.</p>
-        <a href="https://linkedin.com/in/vishnuthangaraj">
-          <img src="https://img.shields.io/badge/Connect_on_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-        </a>
-      </td>
-      <td align="center" width="33%">
-        <h4>📬 Direct Inquiries</h4>
-        <p>Have an interesting project, full-stack opening, or Android opportunity? Drop me a message.</p>
-        <a href="mailto:vishnuthangaraj@hotmail.com">
-          <img src="https://img.shields.io/badge/Send_an_Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
-        </a>
-      </td>
-      <td align="center" width="33%">
-        <h4>🐙 Open Source & Code</h4>
-        <p>Explore my repositories, code architectures, and ongoing projects here on GitHub.</p>
-        <a href="https://github.com/VishnuThangaraj">
-          <img src="https://img.shields.io/badge/Follow_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com/?user=VishnuThangaraj&theme=tokyonight&hide_border=true&background=0d1117&stroke=30363d&ring=38bdf8&fire=6366f1&currStreakLabel=38bdf8">
+            <source media="(prefers-color-scheme: light)" srcset="https://streak-stats.demolab.com/?user=VishnuThangaraj&theme=light&hide_border=false&border=d0d7de&background=ffffff&stroke=d0d7de&ring=0969da&fire=f97316&currStreakLabel=0969da">
+            <img src="https://streak-stats.demolab.com/?user=VishnuThangaraj&theme=tokyonight&hide_border=true&background=0d1117&stroke=30363d&ring=38bdf8&fire=6366f1&currStreakLabel=38bdf8" alt="Vishnu's Streak Stats" width="100%" />
+          </picture>
         </a>
       </td>
     </tr>
@@ -553,14 +231,84 @@ flowchart LR
 
   <br>
 
-  <p><strong>Visitor Count</strong></p>
-  <a href="https://github.com/VishnuThangaraj">
-    <img src="https://komarev.com/ghpvc/?username=VishnuThangaraj&label=Profile%20Views&color=38bdf8&style=flat-square" alt="Profile Views" />
-  </a>
+  <!-- ==================== LIQUID LANGUAGE SPECTRUM & ACTIVITY FLOW ==================== -->
+  <table width="100%">
+    <tr>
+      <td width="48%" align="center">
+        <a href="https://github.com/VishnuThangaraj">
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api/top-langs/?username=VishnuThangaraj&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=38bdf8&text_color=e2e8f0&hide=jupyter%20notebook">
+            <source media="(prefers-color-scheme: light)" srcset="https://github-stats-extended.vercel.app/api/top-langs/?username=VishnuThangaraj&layout=compact&theme=default&hide_border=false&border_color=d0d7de&bg_color=ffffff&title_color=0969da&text_color=1f2328&hide=jupyter%20notebook">
+            <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=VishnuThangaraj&layout=compact&theme=tokyonight&hide_border=true&bg_color=0d1117&title_color=38bdf8&text_color=e2e8f0&hide=jupyter%20notebook" alt="Top Languages" width="100%" />
+          </picture>
+        </a>
+      </td>
+      <td width="52%" align="center">
+        <a href="https://github.com/VishnuThangaraj">
+          <picture>
+            <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=VishnuThangaraj&theme=tokyo-night&bg_color=0d1117&color=38bdf8&line=6366f1&point=a855f7&area=true&hide_border=true">
+            <source media="(prefers-color-scheme: light)" srcset="https://github-readme-activity-graph.vercel.app/graph?username=VishnuThangaraj&theme=github-light&bg_color=ffffff&color=0969da&line=4f46e5&point=9333ea&area=true&hide_border=false&border=d0d7de">
+            <img src="https://github-readme-activity-graph.vercel.app/graph?username=VishnuThangaraj&theme=tokyo-night&bg_color=0d1117&color=38bdf8&line=6366f1&point=a855f7&area=true&hide_border=true" alt="Liquid Activity Flow" width="100%" />
+          </picture>
+        </a>
+      </td>
+    </tr>
+  </table>
+
+</div>
+
+---
+
+### ✨ Connect & Collaborate
+
+<div align="center">
+
+  <table width="100%">
+    <tr>
+      <td align="center" width="33%">
+        <h4>💼 Professional Network</h4>
+        <p>Let's connect and discuss software engineering, distributed systems, and mobile innovations.</p>
+        <br>
+        <a href="https://linkedin.com/in/vishnuthangaraj">
+          <img src="https://img.shields.io/badge/Connect_on_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
+        </a>
+      </td>
+      <td align="center" width="33%">
+        <h4>📬 Direct Inquiries</h4>
+        <p>Have an interesting project, full-stack opening, or Android opportunity? Reach out directly.</p>
+        <br>
+        <a href="mailto:vishnuthangaraj@hotmail.com">
+          <img src="https://img.shields.io/badge/Send_an_Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
+        </a>
+      </td>
+      <td align="center" width="33%">
+        <h4>🐙 Open Source & Code</h4>
+        <p>Explore my repositories, system designs, and ongoing engineering projects here on GitHub.</p>
+        <br>
+        <a href="https://github.com/VishnuThangaraj">
+          <img src="https://img.shields.io/badge/Follow_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
+        </a>
+      </td>
+    </tr>
+  </table>
 
   <br><br>
 
-  <!-- ==================== FOOTER BANNER ==================== -->
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=0,2,24,30&height=100&section=footer" width="100%" alt="Footer Banner" />
+  <!-- Visitor Count & Back to Top -->
+  <p>
+    <img src="https://komarev.com/ghpvc/?username=VishnuThangaraj&label=Profile%20Views&color=38bdf8&style=for-the-badge" alt="Profile Views" />
+  </p>
+
+  <p>
+    <a href="#top">
+      <img src="https://img.shields.io/badge/▲_Back_to_Top-0969da?style=flat-square&logoColor=white" alt="Back to Top" />
+    </a>
+  </p>
+
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&custom_colors=A855F7,6366F1,38BDF8&height=80&section=footer&reversal=false">
+    <source media="(prefers-color-scheme: light)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&custom_colors=9333EA,4F46E5,0284C7&height=80&section=footer&reversal=false">
+    <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&custom_colors=A855F7,6366F1,38BDF8&height=80&section=footer&reversal=false" width="100%" alt="Footer Wave" />
+  </picture>
 
 </div>
