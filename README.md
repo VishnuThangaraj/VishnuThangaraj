@@ -46,7 +46,6 @@
     <code><a href="#-developer-profile">💎 Profile</a></code> &nbsp;✦&nbsp;
     <code><a href="#-technical-arsenal">🔮 Arsenal</a></code> &nbsp;✦&nbsp;
     <code><a href="#-system-architecture-workflow">📐 Architecture</a></code> &nbsp;✦&nbsp;
-    <code><a href="#-workstation--development-environment">⚡ Workstation</a></code> &nbsp;✦&nbsp;
     <code><a href="#-liquid-telemetry--analytics">🌌 Analytics</a></code> &nbsp;✦&nbsp;
     <code><a href="#-connect--collaborate">✨ Connect</a></code>
   </p>
@@ -57,29 +56,22 @@
 
 ### 💎 Developer Profile
 
-```bash
-vishnu@liquid-core:~/systems$ whoami
-> Vishnu Thangaraj — Full-Stack Engineer, Mobile Architect & Distributed Systems Developer
-```
-
 ```json
 {
   "name": "Vishnu Thangaraj",
   "title": "Software Development Engineer",
   "engineering_pillars": [
     "Modern Full-Stack Platforms (React, Node.js, FastAPI)",
-    "Native Android Ecosystems (Kotlin, Java, MVVM, Room)",
-    "High-Throughput Enterprise Microservices (Spring Boot, Java 21)"
+    "Native Android Ecosystems (React Native)",
   ],
-  "persistence_cache": ["MongoDB", "PostgreSQL", "MySQL", "Redis In-Memory"],
-  "core_mantra": "Liquid-smooth UX on the surface, battle-tested resilience under the hood."
+  "persistence_cache": ["MongoDB", "PostgreSQL", "MySQL"]
 }
 ```
 
-- 🌐 **Modern Full-Stack Applications:** Engineering responsive, glassmorphic web frontends in **React & Tailwind** backed by asynchronous, low-latency APIs built using **FastAPI** and **Express.js**.
-- 📱 **Native Mobile Architecture:** Crafting robust native Android applications in **Kotlin & Java** leveraging MVVM clean patterns, Jetpack Navigation, LiveData/Flow, Room ORM, and Retrofit.
-- ☕ **Enterprise Systems & Java Backend:** Designing scalable REST microservices and database layers with **Spring Boot**, **JPA/Hibernate**, and secure JWT authentication.
-- ⚡ **Performance Engineering:** Fine-tuning database indexing, sub-millisecond caching with **Redis**, and containerized multi-stage deployments with **Docker**.
+- 🌐 **Modern Full-Stack Applications:** Engineering responsive web frontends in **React & MUI** backed by asynchronous, low-latency APIs built using the **MERN Stack** (MongoDB, Express.js, React, Node.js).
+
+
+- ⚡ **Containerization & Deployment:** Building containerized multi-stage deployments and managing environments with **Docker**.
 
 ---
 
@@ -97,22 +89,22 @@ vishnu@liquid-core:~/systems$ whoami
     <img src="https://skillicons.dev/icons?i=react,redux,tailwind,vite,html,css,js,ts,bootstrap&perline=9" alt="Frontend Arsenal" />
   </picture>
   <br><br>
-  
+
   <!-- Backend, Mobile & Systems -->
   <p><code>⚙️ BACKEND, MOBILE & SYSTEMS ENGINE</code></p>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=nodejs,express,fastapi,py,java,kotlin,androidstudio,spring,maven&theme=dark&perline=9">
-    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=nodejs,express,fastapi,py,java,kotlin,androidstudio,spring,maven&theme=light&perline=9">
-    <img src="https://skillicons.dev/icons?i=nodejs,express,fastapi,py,java,kotlin,androidstudio,spring,maven&perline=9" alt="Backend & Mobile Arsenal" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=nodejs,express,fastapi,py,java,androidstudio&theme=dark&perline=6">
+    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=nodejs,express,fastapi,py,java,androidstudio&theme=light&perline=6">
+    <img src="https://skillicons.dev/icons?i=nodejs,express,fastapi,py,java,androidstudio&perline=6" alt="Backend & Mobile Arsenal" />
   </picture>
   <br><br>
 
   <!-- Databases, DevOps & Cloud Persistence -->
   <p><code>🗄️ PERSISTENCE, CACHE & INFRASTRUCTURE</code></p>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=mongodb,mysql,postgres,redis,docker,git,github,postman,linux&theme=dark&perline=9">
-    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=mongodb,mysql,postgres,redis,docker,git,github,postman,linux&theme=light&perline=9">
-    <img src="https://skillicons.dev/icons?i=mongodb,mysql,postgres,redis,docker,git,github,postman,linux&perline=9" alt="Databases & DevOps Arsenal" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=mongodb,mysql,postgres,docker,git,github,postman,linux&theme=dark&perline=8">
+    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=mongodb,mysql,postgres,docker,git,github,postman,linux&theme=light&perline=8">
+    <img src="https://skillicons.dev/icons?i=mongodb,mysql,postgres,docker,git,github,postman,linux&perline=8" alt="Databases & DevOps Arsenal" />
   </picture>
   <br><br>
 </div>
@@ -123,10 +115,10 @@ vishnu@liquid-core:~/systems$ whoami
 
 | Domain | Technologies & Stacks | Capabilities & Engineering Focus |
 | :--- | :--- | :--- |
-| **🌐 Frontend & Web** | `React` `Redux Toolkit` `Vite` `Tailwind CSS` `JavaScript` `TypeScript` `HTML5` `CSS3` | Single Page Apps (SPA), State Management, Responsive Design, Component Lifecycle, Asynchronous UI, Liquid Glass Aesthetics |
-| **📱 Mobile & Android** | `Android Studio` `Kotlin` `Java` `Material Design` `Room DB` `Firebase` | MVVM Architecture, Jetpack Components, Local SQLite/Room Caching, Retrofit REST Clients, Push Notifications, Background Workers |
-| **⚙️ Backend & APIs** | `Node.js` `Express.js` `FastAPI` `Python` `Core Java` `Spring Boot` | RESTful API Architecture, JWT/OAuth2 Authentication, Asynchronous Processing, Middleware Design, Microservices Ecosystem |
-| **🗄️ Databases & Storage** | `MongoDB` `MySQL` `PostgreSQL` `Redis` | NoSQL Document Modeling, Relational Normalization & Indexing, Query Optimization, In-Memory Caching, ACID Transactions |
+| **🌐 Frontend & Web** | `React` `MUI` `Redux Toolkit` `Vite` `Tailwind CSS` `JavaScript` `TypeScript` `HTML5` `CSS3` | Single Page Apps (SPA), State Management, Responsive Design, Component Lifecycle, Asynchronous UI, Liquid Glass Aesthetics |
+| **📱 Mobile & Android** | `Android Studio` `Java` `Material Design` `Room DB` `Firebase` | MVVM Architecture, Jetpack Components, Local SQLite/Room Caching, Retrofit REST Clients, Push Notifications, Background Workers |
+| **⚙️ Backend & APIs** | `Node.js` `Express.js` `FastAPI` `Python` `Core Java` | RESTful API Architecture, JWT/OAuth2 Authentication, Asynchronous Processing, Middleware Design, Microservices Ecosystem |
+| **🗄️ Databases & Storage** | `MongoDB` `MySQL` `PostgreSQL` | NoSQL Document Modeling, Relational Normalization & Indexing, Query Optimization, ACID Transactions |
 | **🛠️ DevOps & Tooling** | `Docker` `Git` `GitHub` `Postman` `Linux` `Gradle` | Containerization, Version Control & GitFlow, Automated API Testing, Unix CLI Automation, Dependency Management |
 
 </details>
@@ -173,7 +165,7 @@ flowchart LR
     %% Flow Connections
     Presentation ==> Gateway
     Gateway ==> Services
-    
+
     FastAPIService --> MongoDB
     FastAPIService --> RedisCache
     NodeService --> MongoDB
@@ -184,15 +176,9 @@ flowchart LR
 
 ---
 
-### ⚡ Workstation & Development Environment
 
-| 🖥️ Operating System | ⚡ Primary IDEs | 🐚 Shell & CLI | ☕ Runtimes & SDKs | 🛠️ Tools & DevOps |
-| :---: | :---: | :---: | :---: | :---: |
-| `Windows 11 Pro`<br>`Ubuntu / WSL2` | `VS Code`<br>`Android Studio`<br>`IntelliJ IDEA` | `PowerShell 7`<br>`Zsh / Oh-My-Zsh`<br>`Bash CLI` | `JDK 17 / 21 LTS`<br>`Node.js 20+ LTS`<br>`Python 3.11+` | `Docker Engine`<br>`Postman & cURL`<br>`Gradle & Maven` |
 
----
-
-### 🌌 Liquid Telemetry & Analytics
+### 🌌 Telemetry & Analytics
 
 <div align="center">
 
