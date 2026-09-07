@@ -1,58 +1,3 @@
-<div align="center" id="top">
-
-  <!-- ==================== DYNAMIC LIQUID GLASS HERO HEADER ==================== -->
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&custom_colors=38BDF8,6366F1,A855F7&height=120&section=header&text=VISHNU%20THANGARAJ&fontSize=42&fontColor=ffffff&fontAlignY=38&desc=Full-Stack%20%E2%80%A2%20Android%20%E2%80%A2%20Scalable%20Systems&descSize=16&descAlignY=62&descColor=e0f2fe">
-    <source media="(prefers-color-scheme: light)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&custom_colors=0284C7,4F46E5,9333EA&height=120&section=header&text=VISHNU%20THANGARAJ&fontSize=42&fontColor=ffffff&fontAlignY=38&desc=Full-Stack%20%E2%80%A2%20Android%20%E2%80%A2%20Scalable%20Systems&descSize=16&descAlignY=62&descColor=ffffff">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&custom_colors=38BDF8,6366F1,A855F7&height=120&section=header&text=VISHNU%20THANGARAJ&fontSize=42&fontColor=ffffff&fontAlignY=38&desc=Full-Stack%20%E2%80%A2%20Android%20%E2%80%A2%20Scalable%20Systems&descSize=16&descAlignY=62&descColor=e0f2fe" width="100%" alt="Liquid Glass Header Banner" />
-  </picture>
-
-  <br>
-
-  <!-- ==================== DYNAMIC TYPING HUD ==================== -->
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=21&duration=2800&pause=1000&color=38BDF8&center=true&vCenter=true&width=850&height=45&lines=Architecting+Scalable+Full-Stack+Web+Platforms+(MERN);Crafting+High-Performance+Native+Android+Apps;Engineering+Scalable+Backends+%26+Microservices;Building+Modern%2C+Liquid-Clean%2C+Ultra-Fast+Software">
-    <source media="(prefers-color-scheme: light)" srcset="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=21&duration=2800&pause=1000&color=0969DA&center=true&vCenter=true&width=850&height=45&lines=Architecting+Scalable+Full-Stack+Web+Platforms+(MERN);Crafting+High-Performance+Native+Android+Apps;Engineering+Scalable+Backends+%26+Microservices;Building+Modern%2C+Liquid-Clean%2C+Ultra-Fast+Software">
-    <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=21&duration=2800&pause=1000&color=38BDF8&center=true&vCenter=true&width=850&height=45&lines=Architecting+Scalable+Full-Stack+Web+Platforms+(MERN);Crafting+High-Performance+Native+Android+Apps;Engineering+Scalable+Backends+%26+Microservices;Building+Modern%2C+Liquid-Clean%2C+Ultra-Fast+Software" alt="Dynamic Typing HUD" />
-  </picture>
-
-  <br>
-
-  <!-- ==================== FROSTED STATUS PILLS ==================== -->
-  <p>
-    <img src="https://img.shields.io/badge/STATUS-🟢_AVAILABLE_FOR_ROLES-00C853?style=for-the-badge&logo=statuspage&logoColor=white" alt="Status" />
-    <img src="https://img.shields.io/badge/CORE_FOCUS-FULL--STACK_%7C_ANDROID-38BDF8?style=for-the-badge&logo=codeforces&logoColor=white" alt="Focus" />
-    <img src="https://img.shields.io/badge/SYSTEM_DESIGN-CLEAN_ARCHITECTURE-6366F1?style=for-the-badge&logo=visualstudiocode&logoColor=white" alt="Architecture" />
-    <img src="https://img.shields.io/badge/TELEMETRY-HIGH_VELOCITY-A855F7?style=for-the-badge&logo=speedtest&logoColor=white" alt="Telemetry" />
-  </p>
-
-  <!-- ==================== FLOATING GLASS SOCIAL PILLS ==================== -->
-  <p>
-    <a href="https://linkedin.com/in/vishnuthangaraj">
-      <img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-    </a>
-    &nbsp;
-    <a href="mailto:vishnuthangaraj@hotmail.com">
-      <img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
-    </a>
-    &nbsp;
-    <a href="https://github.com/VishnuThangaraj">
-      <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub" />
-    </a>
-  </p>
-
-  <!-- ==================== SYNCHRONIZED GLASS HUD NAVIGATION ==================== -->
-  <p>
-    <code><a href="#developer-profile">Profile</a></code> &nbsp;✦&nbsp;
-    <code><a href="#technical-arsenal">Arsenal</a></code> &nbsp;✦&nbsp;
-    <code><a href="#system-architecture-workflow">Architecture</a></code> &nbsp;✦&nbsp;
-    <code><a href="#telemetry--analytics">Analytics</a></code> &nbsp;✦&nbsp;
-    <code><a href="#connect--collaborate">Connect</a></code>
-  </p>
-
-</div>
-
----
 
 ### Developer Profile
 
@@ -166,22 +111,6 @@ flowchart LR
     NodeService --> MongoDB
     NodeService --> RelationalDB
 ```
-
----
-
-### Telemetry & Analytics
-
-<div align="center">
-
-  <!-- ==================== LIQUID GLASS PROFILE SUMMARY HUD ==================== -->
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=VishnuThangaraj&theme=tokyonight">
-    <source media="(prefers-color-scheme: light)" srcset="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=VishnuThangaraj&theme=default">
-    <img src="https://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=VishnuThangaraj&theme=tokyonight" alt="GitHub Profile Details Card" width="100%" />
-  </picture>
-
-  <br><br>
-
 ---
 
 ### Connect & Collaborate
@@ -192,7 +121,7 @@ flowchart LR
     <tr>
       <td align="center" width="33%">
         <h4>Professional Network</h4>
-        <p>Let's connect and discuss software engineering, full-stack architectures, and mobile innovations.</p>
+        <p >Let's connect and discuss software engineering, full-stack architectures, and mobile innovations.</p>
         <br>
         <a href="https://linkedin.com/in/vishnuthangaraj">
           <img src="https://img.shields.io/badge/Connect_on_LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
@@ -218,22 +147,5 @@ flowchart LR
   </table>
 
   <br><br>
-
-  <!-- Visitor Count & Back to Top -->
-  <p>
-    <img src="https://komarev.com/ghpvc/?username=VishnuThangaraj&label=Profile%20Views&color=38bdf8&style=for-the-badge" alt="Profile Views" />
-  </p>
-
-  <p>
-    <a href="#top">
-      <img src="https://img.shields.io/badge/Back_to_Top-0969da?style=flat-square&logoColor=white" alt="Back to Top" />
-    </a>
-  </p>
-
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&custom_colors=A855F7,6366F1,38BDF8&height=80&section=footer&reversal=false">
-    <source media="(prefers-color-scheme: light)" srcset="https://capsule-render.vercel.app/api?type=waving&color=gradient&custom_colors=9333EA,4F46E5,0284C7&height=80&section=footer&reversal=false">
-    <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&custom_colors=A855F7,6366F1,38BDF8&height=80&section=footer&reversal=false" width="100%" alt="Footer Wave" />
-  </picture>
 
 </div>
