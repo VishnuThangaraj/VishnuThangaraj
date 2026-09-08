@@ -111,6 +111,4 @@ flowchart LR
     NodeService --> RelationalDB
 ```
 
----
-
 </div>
