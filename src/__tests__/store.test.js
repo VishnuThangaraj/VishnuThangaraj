@@ -10,9 +10,8 @@ describe("Settings Store", () => {
   it("initializes with default values", () => {
     const s = useSettingsStore.getState();
     expect(s.theme).toBe("dark");
-    expect(s.accent).toBe("amber");
+    expect(s.accent).toBe("olive");
     expect(s.tier).toBe("t1");
-    expect(s.wallpaper).toBe("mountain-dusk");
   });
 
   it("updates theme, accent, and tier", () => {

@@ -35,7 +35,7 @@ export const ProjectsApp = ({ params = {} }) => {
                 onClick={() => setActiveProjectId(proj.id)}
                 className={`flex items-center gap-2 px-3 py-1.5 rounded-t-xl text-xs font-medium transition-all max-w-[200px] truncate ${
                   isActive
-                    ? "bg-[#1f1f23] text-amber-300 border-t border-x border-white/15"
+                    ? "bg-[#1f1f23] text-[var(--accent)] border-t border-x border-white/15"
                     : "text-gray-400 hover:text-white hover:bg-white/5"
                 }`}
               >
@@ -76,7 +76,7 @@ export const ProjectsApp = ({ params = {} }) => {
             href={activeProj.repo}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/30 text-xs font-medium transition-colors"
+            className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-[var(--accent)]/20 hover:bg-[var(--accent)]/30 text-[var(--accent)] border border-[var(--accent)]/30 text-xs font-medium transition-colors"
           >
             <Github className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">GitHub</span>
@@ -97,7 +97,7 @@ export const ProjectsApp = ({ params = {} }) => {
                   Featured Project
                 </span>
               </div>
-              <p className="text-sm font-semibold text-amber-300 mt-1">
+              <p className="text-sm font-semibold text-[var(--accent)] mt-1">
                 {activeProj.tagline}
               </p>
             </div>
@@ -106,7 +106,7 @@ export const ProjectsApp = ({ params = {} }) => {
               href={activeProj.repo}
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2 rounded-xl bg-amber-500 text-black font-semibold text-xs flex items-center gap-2 hover:bg-amber-400 transition-colors shadow-lg shadow-amber-500/20 w-fit"
+              className="px-4 py-2 rounded-xl bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-semibold text-xs flex items-center gap-2 transition-colors shadow-lg shadow-[var(--accent)]/20 w-fit"
             >
               <Github className="w-4 h-4" />
               <span>View Source Code</span>

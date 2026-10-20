@@ -1,11 +1,11 @@
 import { AppIcon } from "../components/AppIcon";
+import { WindowControlButtons } from "../components/icons/GnomeIcons";
 import { useWindowDrag } from "./useWindowDrag";
 import { useWindowStore } from "../store/windowStore";
 import { useSettingsStore } from "../store/settingsStore";
-import { Minus, Square, X, RotateCcw } from "lucide-react";
 
-export const WindowFrame = ({ window, children }) => {
-  const { id, title, icon, bounds, isMaximized, isMinimized, focused, zIndex } = window;
+export const WindowFrame = ({ window: win, children }) => {
+  const { id, title, icon, bounds, isMaximized, isMinimized, focused, zIndex } = win;
 
   const closeWindow = useWindowStore((s) => s.closeWindow);
   const minimizeWindow = useWindowStore((s) => s.minimizeWindow);
@@ -15,7 +15,6 @@ export const WindowFrame = ({ window, children }) => {
   const snapWindow = useWindowStore((s) => s.snapWindow);
 
   const theme = useSettingsStore((s) => s.theme);
-  const tier = useSettingsStore((s) => s.tier);
   const isLight = theme === "light";
 
   const { isDragging, snapGhost, titleDragProps, getResizeProps } =
@@ -33,35 +32,32 @@ export const WindowFrame = ({ window, children }) => {
 
   if (isMinimized) return null;
 
-  // Material selection: focused window gets glass; inactive drops to cheaper material
-  const isGlass = tier !== "t0" && theme !== "high-contrast" && focused;
-
   return (
     <>
-      {/* Snap Ghost Preview Overlay */}
+      {/* Snap Ghost Preview Overlay (GNOME style subtle accent tint) */}
       {snapGhost && (
         <div
-          className={`fixed z-[990] rounded-2xl border-2 border-amber-400/80 bg-amber-400/20 backdrop-blur-sm transition-all duration-150 pointer-events-none animate-pulse`}
+          className="fixed z-[990] rounded-xl border-2 border-[var(--accent)] bg-[var(--accent)]/15 backdrop-blur-sm transition-all duration-150 pointer-events-none"
           style={{
             top: 32,
-            bottom: 72,
+            bottom: 88,
             left: snapGhost === "right" ? "50%" : 8,
             right: snapGhost === "left" ? "50%" : 8,
           }}
         />
       )}
 
-      {/* Main Window Container */}
+      {/* Main Window Container (Adwaita Window Frame R5) */}
       <div
         id={`window-${id}`}
         role="dialog"
         aria-label={title}
         tabIndex={-1}
         onPointerDown={() => focusWindow(id)}
-        className={`fixed flex flex-col rounded-2xl overflow-hidden transition-shadow duration-200 select-none ${
+        className={`fixed flex flex-col rounded-xl overflow-hidden select-none transition-shadow duration-150 ${
           focused
-            ? "shadow-2xl ring-1 ring-white/20"
-            : "shadow-md opacity-95 ring-1 ring-white/10"
+            ? "shadow-2xl ring-1 ring-white/10"
+            : "shadow-md opacity-95 ring-1 ring-white/5"
         } ${isDragging ? "opacity-90 transition-none" : ""}`}
         style={{
           left: bounds.x,
@@ -69,98 +65,49 @@ export const WindowFrame = ({ window, children }) => {
           width: bounds.width,
           height: bounds.height,
           zIndex,
-          transformOrigin: "bottom center",
-          background: isLight ? "#fbfbfe" : "#18181b",
-          border: isLight
-            ? "1px solid rgba(0, 0, 0, 0.15)"
-            : "1px solid rgba(255, 255, 255, 0.15)",
+          borderRadius: isMaximized ? 0 : "12px",
+          backgroundColor: "var(--window-content-bg)",
+          color: "var(--window-text)",
+          border: isMaximized
+            ? "none"
+            : isLight
+            ? "1px solid rgba(0, 0, 0, 0.12)"
+            : "1px solid rgba(255, 255, 255, 0.10)",
         }}
       >
-        {/* Window Title Bar */}
+        {/* Integrated Adwaita Header Bar (R5) */}
         <div
           {...titleDragProps}
           onDoubleClick={() => maximizeWindow(id)}
-          className={`h-10 px-3 flex items-center justify-between cursor-grab active:cursor-grabbing border-b select-none transition-colors duration-150 ${
-            isGlass
-              ? isLight
-                ? "bg-white/80 backdrop-blur-xl border-black/10 text-gray-900"
-                : "bg-[#202024]/85 backdrop-blur-xl border-white/10 text-white"
-              : isLight
-              ? "bg-[#eaeaea] border-black/10 text-gray-900"
-              : "bg-[#222226] border-white/10 text-white"
-          }`}
+          className="h-[47px] px-4 flex items-center justify-between cursor-grab active:cursor-grabbing border-b select-none transition-colors duration-150"
           style={{
-            boxShadow: isGlass
-              ? "inset 0 1px 0 rgba(255, 255, 255, 0.2)"
-              : undefined,
+            backgroundColor: "var(--window-header-bg)",
+            borderColor: isLight ? "rgba(0,0,0,0.08)" : "rgba(255,255,255,0.08)",
           }}
         >
-          {/* Traffic Light Controls */}
-          <div className="flex items-center gap-2 group/dots">
-            {/* Close */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                closeWindow(id);
-              }}
-              className="w-3.5 h-3.5 rounded-full bg-[#ef5350] hover:bg-[#c62828] active:scale-90 flex items-center justify-center text-black/70 transition-transform"
-              title="Close (Ctrl+W)"
-              aria-label="Close window"
-            >
-              <X className="w-2.5 h-2.5 opacity-0 group-hover/dots:opacity-100 transition-opacity" />
-            </button>
-
-            {/* Minimize */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                minimizeWindow(id);
-              }}
-              className="w-3.5 h-3.5 rounded-full bg-[#ffa726] hover:bg-[#e65100] active:scale-90 flex items-center justify-center text-black/70 transition-transform"
-              title="Minimize (Ctrl+M)"
-              aria-label="Minimize window"
-            >
-              <Minus className="w-2.5 h-2.5 opacity-0 group-hover/dots:opacity-100 transition-opacity" />
-            </button>
-
-            {/* Maximize / Restore */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                maximizeWindow(id);
-              }}
-              className="w-3.5 h-3.5 rounded-full bg-[#66bb6a] hover:bg-[#2e7d32] active:scale-90 flex items-center justify-center text-black/70 transition-transform"
-              title={isMaximized ? "Restore window" : "Maximize window"}
-              aria-label={isMaximized ? "Restore window" : "Maximize window"}
-            >
-              {isMaximized ? (
-                <RotateCcw className="w-2 h-2 opacity-0 group-hover/dots:opacity-100 transition-opacity" />
-              ) : (
-                <Square className="w-2 h-2 opacity-0 group-hover/dots:opacity-100 transition-opacity" />
-              )}
-            </button>
-          </div>
-
-          {/* Title and Icon */}
-          <div className="flex items-center gap-2 text-xs font-semibold tracking-wide truncate max-w-[60%] pointer-events-none">
-            <AppIcon name={icon} className="w-4 h-4 text-amber-400 shrink-0" />
+          {/* Left: Window Icon and Title */}
+          <div className="flex items-center gap-2.5 text-xs font-semibold tracking-wide truncate max-w-[70%] pointer-events-none">
+            <AppIcon name={icon} className="w-4 h-4 text-[var(--accent)] shrink-0" />
             <span className="truncate">{title}</span>
           </div>
 
-          {/* Right Spacer for balance */}
-          <div className="w-12" />
+          {/* Right: Circular Window Controls (Minimize, Maximize, Close - R5) */}
+          <div className="flex items-center gap-2">
+            <WindowControlButtons
+              onMinimize={() => minimizeWindow(id)}
+              onMaximize={() => maximizeWindow(id)}
+              onClose={() => closeWindow(id)}
+              isMaximized={isMaximized}
+            />
+          </div>
         </div>
 
         {/* Window Content Area */}
-        <div
-          className={`flex-1 overflow-auto text-sm ${
-            isLight ? "bg-[#fbfbfe] text-gray-900" : "bg-[#18181b] text-gray-100"
-          }`}
-        >
+        <div className="flex-1 overflow-auto text-sm">
           {children}
         </div>
 
-        {/* ── 8-way Resize Handles ── */}
+        {/* ── 8-way Invisible Resize Handles ── */}
         {!isMaximized && (
           <>
             <div

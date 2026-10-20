@@ -1,6 +1,7 @@
 import { createStore } from "./createStore";
+import { ACCENTS } from "../theme/tokens";
 
-const STORAGE_KEY = "vishnu_os_settings_v2";
+const STORAGE_KEY = "vishnu_os_settings_v3";
 
 function getSystemReducedMotion() {
   if (typeof window === "undefined" || !window.matchMedia) return false;
@@ -15,12 +16,14 @@ function getSystemHighContrast() {
 function loadInitialSettings() {
   const defaults = {
     theme: getSystemHighContrast() ? "high-contrast" : "dark",
-    accent: "amber", // Default accent per D6
-    tier: getSystemHighContrast() ? "t0" : "t1",
+    accent: "olive", // Default canonical GNOME Olive Green per D6
+    tier: "t1",
     reducedMotion: getSystemReducedMotion(),
     reduceTransparency: getSystemHighContrast(),
-    wallpaper: "mountain-dusk", // Default original wallpaper per D8
+    wallpaper: "default-gnome",
     mode: "desktop", // 'desktop' | 'phone' | 'classic'
+    shellStyle: "follow-theme", // 'follow-theme' | 'gnome-dark'
+    nightLight: false,
     soundEnabled: false,
     bootCompleted: false,
   };
@@ -49,6 +52,11 @@ export const useSettingsStore = createStore((set, get) => ({
     persist(get());
   },
 
+  toggleDarkStyle: () => {
+    const nextTheme = get().theme === "dark" ? "light" : "dark";
+    get().setTheme(nextTheme);
+  },
+
   setAccent: (accent) => {
     set({ accent });
     applyDOMAttributes({ ...get(), accent });
@@ -61,8 +69,21 @@ export const useSettingsStore = createStore((set, get) => ({
     persist(get());
   },
 
+  setShellStyle: (shellStyle) => {
+    set({ shellStyle });
+    applyDOMAttributes({ ...get(), shellStyle });
+    persist(get());
+  },
+
+  setNightLight: (nightLight) => {
+    set({ nightLight });
+    applyDOMAttributes({ ...get(), nightLight });
+    persist(get());
+  },
+
   setReducedMotion: (reducedMotion) => {
     set({ reducedMotion });
+    applyDOMAttributes({ ...get(), reducedMotion });
     persist(get());
   },
 
@@ -100,12 +121,14 @@ export const useSettingsStore = createStore((set, get) => ({
   resetSettings: () => {
     const defaults = {
       theme: "dark",
-      accent: "amber",
+      accent: "olive",
       tier: "t1",
       reducedMotion: false,
       reduceTransparency: false,
-      wallpaper: "mountain-dusk",
+      wallpaper: "default-gnome",
       mode: "desktop",
+      shellStyle: "follow-theme",
+      nightLight: false,
       soundEnabled: false,
     };
     set(defaults);
@@ -124,6 +147,8 @@ function persist(state) {
       reduceTransparency: state.reduceTransparency,
       wallpaper: state.wallpaper,
       mode: state.mode,
+      shellStyle: state.shellStyle,
+      nightLight: state.nightLight,
       soundEnabled: state.soundEnabled,
     };
     localStorage.setItem(STORAGE_KEY, JSON.stringify(toSave));
@@ -135,14 +160,32 @@ function persist(state) {
 export function applyDOMAttributes(state) {
   if (typeof document === "undefined") return;
   const root = document.documentElement;
-  root.setAttribute("data-theme", state.theme);
-  root.setAttribute("data-accent", state.accent);
-  root.setAttribute("data-tier", state.tier);
+  root.setAttribute("data-theme", state.theme || "dark");
+  root.setAttribute("data-accent", state.accent || "olive");
+  root.setAttribute("data-tier", state.tier || "t1");
+  root.setAttribute("data-shell-style", state.shellStyle || "follow-theme");
+
+  const accentObj = ACCENTS[state.accent] || ACCENTS.olive;
+  if (accentObj) {
+    root.style.setProperty("--accent", accentObj.primary);
+    root.style.setProperty("--accent-hover", accentObj.hover);
+    root.style.setProperty("--accent-soft", accentObj.soft);
+    root.style.setProperty("--accent-border", accentObj.border);
+    root.style.setProperty("--accent-text", accentObj.textOnAccent || "#ffffff");
+  }
+
+  if (state.nightLight) {
+    root.setAttribute("data-night-light", "true");
+  } else {
+    root.removeAttribute("data-night-light");
+  }
+
   if (state.reduceTransparency) {
     root.setAttribute("data-reduce-transparency", "true");
   } else {
     root.removeAttribute("data-reduce-transparency");
   }
+
   if (state.reducedMotion) {
     root.setAttribute("data-reduced-motion", "true");
   } else {

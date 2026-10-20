@@ -1,0 +1,28 @@
+{
+  "wallpapers": [
+    {
+      "id": "mountain-dusk",
+      "name": "Mountain Dusk",
+      "type": "gradient",
+      "dark": "linear-gradient(180deg, #1a2612 0%, #2c3a1e 15%, #4a5a2e 30%, #6b7a3e 50%, #4a6848 75%, #152a22 100%)",
+      "light": "linear-gradient(180deg, #d8e2dc 0%, #f4f1de 40%, #e07a5f 100%)",
+      "accentHint": "#4b8501"
+    },
+    {
+      "id": "deep-space",
+      "name": "Deep Space",
+      "type": "gradient",
+      "dark": "radial-gradient(ellipse at 50% 50%, #0a1628 0%, #050d1a 60%, #020810 100%)",
+      "light": "radial-gradient(ellipse at 50% 50%, #e0e7ff 0%, #c7d2fe 60%, #a5b4fc 100%)",
+      "accentHint": "#3b82f6"
+    },
+    {
+      "id": "gnome-default",
+      "name": "GNOME Reference Wallpaper",
+      "type": "gradient",
+      "dark": "linear-gradient(180deg, #252a1a 0%, #3f4728 25%, #59653a 50%, #465330 75%, #1f2717 100%)",
+      "light": "linear-gradient(180deg, #f5f5f7 0%, #e5e5ea 50%, #d1d1d6 100%)",
+      "accentHint": "#4b8501"
+    }
+  ]
+}

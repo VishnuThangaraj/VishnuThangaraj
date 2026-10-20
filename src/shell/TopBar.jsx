@@ -4,101 +4,65 @@ import {
   Volume2,
   VolumeX,
   Battery,
-  BatteryCharging,
-  Settings,
-  Folder,
-  Sun,
-  Moon,
-  Activity,
-  Layers,
-  ChevronDown,
-  Calendar as CalendarIcon,
-  BookOpen,
-  Briefcase,
-  Globe,
-  Terminal,
-  FileText,
   User,
-  Sliders,
+  Globe,
+  Briefcase,
+  Layers,
+  BookOpen,
+  FileText,
+  Terminal,
+  ChevronDown,
 } from "lucide-react";
+import { NetworkSpeedIcon } from "../components/icons/GnomeIcons";
+import { DateMenuPopover } from "./DateMenuPopover";
+import { QuickSettingsPopover } from "./QuickSettingsPopover";
 import { useSettingsStore } from "../store/settingsStore";
 import { useWindowStore } from "../store/windowStore";
 
 export const TopBar = () => {
-  const [timeStr, setTimeStr] = useState("");
-  const [dateStr, setDateStr] = useState("");
+  const [timeStr, setTimeStr] = useState("7:59 AM");
+  const [dateStr, setDateStr] = useState("Tue Oct 20");
   const [isPlacesOpen, setIsPlacesOpen] = useState(false);
-  const [isCalendarOpen, setIsCalendarOpen] = useState(false);
+  const [isDateMenuOpen, setIsDateMenuOpen] = useState(false);
   const [isQuickSettingsOpen, setIsQuickSettingsOpen] = useState(false);
   const [activeWorkspace, setActiveWorkspace] = useState(1);
-  const [networkInfo, setNetworkInfo] = useState(null);
-  const [batteryInfo, setBatteryInfo] = useState(null);
 
   const placesRef = useRef(null);
-  const calendarRef = useRef(null);
+  const dateMenuRef = useRef(null);
   const quickSettingsRef = useRef(null);
 
-  const theme = useSettingsStore((s) => s.theme);
-  const setTheme = useSettingsStore((s) => s.setTheme);
   const soundEnabled = useSettingsStore((s) => s.soundEnabled);
-  const setSoundEnabled = useSettingsStore((s) => s.setSoundEnabled);
   const setMode = useSettingsStore((s) => s.setMode);
 
   const openWindow = useWindowStore((s) => s.openWindow);
   const toggleActivities = useWindowStore((s) => s.toggleActivities);
 
-  // Live Clock
+  // Live Clock (minute tick, formatted like R1: "Tue Oct 20  7:59 AM")
   useEffect(() => {
     const updateTime = () => {
       const now = new Date();
-      const options = { weekday: "short", month: "short", day: "numeric" };
-      setDateStr(now.toLocaleDateString("en-US", options));
-      setTimeStr(
-        now.toLocaleTimeString("en-US", {
-          hour: "2-digit",
-          minute: "2-digit",
-          hour12: false,
-        })
-      );
+      const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+      const months = [
+        "Jan", "Feb", "Mar", "Apr", "May", "Jun",
+        "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"
+      ];
+      const dayName = days[now.getDay()];
+      const monthName = months[now.getMonth()];
+      const dayNum = now.getDate();
+      setDateStr(`${dayName} ${monthName} ${dayNum}`);
+
+      let hours = now.getHours();
+      const minutes = now.getMinutes();
+      const ampm = hours >= 12 ? "PM" : "AM";
+      hours = hours % 12;
+      hours = hours ? hours : 12;
+      const minutesStr = minutes < 10 ? `0${minutes}` : minutes;
+      setTimeStr(`${hours}:${minutesStr} ${ampm}`);
     };
 
     updateTime();
     const timer = setInterval(updateTime, 1000);
     return () => clearInterval(timer);
-  }, []);
-
-  // Network API detection (Task 2.2 / D11)
-  useEffect(() => {
-    if (typeof navigator !== "undefined" && "connection" in navigator) {
-      const conn = navigator.connection;
-      const updateNet = () => {
-        if (conn && conn.downlink) {
-          setNetworkInfo(`${conn.downlink} Mbps`);
-        }
-      };
-      updateNet();
-      conn?.addEventListener?.("change", updateNet);
-      return () => conn?.removeEventListener?.("change", updateNet);
-    }
-  }, []);
-
-  // Battery API detection (Task 2.2 / D11)
-  useEffect(() => {
-    if (typeof navigator !== "undefined" && "getBattery" in navigator) {
-      navigator.getBattery().then((battery) => {
-        const updateBat = () => {
-          setBatteryInfo({
-            level: Math.round(battery.level * 100),
-            charging: battery.charging,
-          });
-        };
-        updateBat();
-        battery.addEventListener("levelchange", updateBat);
-        battery.addEventListener("chargingchange", updateBat);
-      }).catch(() => {
-        // Battery API blocked or unavailable
-      });
-    }
   }, []);
 
   // Close menus on outside click or Esc
@@ -107,8 +71,8 @@ export const TopBar = () => {
       if (placesRef.current && !placesRef.current.contains(e.target)) {
         setIsPlacesOpen(false);
       }
-      if (calendarRef.current && !calendarRef.current.contains(e.target)) {
-        setIsCalendarOpen(false);
+      if (dateMenuRef.current && !dateMenuRef.current.contains(e.target)) {
+        setIsDateMenuOpen(false);
       }
       if (quickSettingsRef.current && !quickSettingsRef.current.contains(e.target)) {
         setIsQuickSettingsOpen(false);
@@ -118,7 +82,7 @@ export const TopBar = () => {
     const handleKeyDown = (e) => {
       if (e.key === "Escape") {
         setIsPlacesOpen(false);
-        setIsCalendarOpen(false);
+        setIsDateMenuOpen(false);
         setIsQuickSettingsOpen(false);
       }
     };
@@ -131,288 +95,216 @@ export const TopBar = () => {
     };
   }, []);
 
-  const handleOpenApp = (appId) => {
-    openWindow(appId);
+  const handleOpenApp = (appId, params = {}) => {
+    openWindow(appId, params);
     setIsPlacesOpen(false);
   };
 
-  const isLight = theme === "light";
+  const handleWorkspaceWheel = (e) => {
+    if (e.deltaY > 0) {
+      setActiveWorkspace((prev) => (prev < 3 ? prev + 1 : 1));
+    } else {
+      setActiveWorkspace((prev) => (prev > 1 ? prev - 1 : 3));
+    }
+  };
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 h-8 z-[1100] px-3 flex items-center justify-between text-xs select-none backdrop-blur-md transition-colors duration-200 border-b ${
-        isLight
-          ? "bg-white/80 text-gray-900 border-black/10"
-          : "bg-black/60 text-gray-200 border-white/10"
-      }`}
-      role="banner"
-    >
-      {/* ── Left Area: Activities, Workspaces, Places, Network ── */}
-      <div className="flex items-center gap-2">
-        {/* Activities button */}
-        <button
-          onClick={toggleActivities}
-          className="px-2 py-0.5 rounded font-medium hover:bg-white/15 active:bg-white/25 transition-colors flex items-center gap-1.5 focus-visible:ring-1 focus-visible:ring-amber-400"
-          title="Activities & Launchpad (Ctrl+K)"
-        >
-          <Activity className="w-3.5 h-3.5 text-amber-400" />
-          <span>Activities</span>
-        </button>
-
-        {/* Workspace dots (GNOME style) */}
-        <div className="flex items-center gap-1 px-1 py-0.5" aria-label="Workspaces">
-          {[1, 2, 3].map((ws) => (
-            <button
-              key={ws}
-              onClick={() => setActiveWorkspace(ws)}
-              className={`w-2.5 h-2.5 rounded-full transition-all ${
-                activeWorkspace === ws
-                  ? "bg-amber-400 scale-110 shadow-sm"
-                  : "bg-white/30 hover:bg-white/50"
-              }`}
-              title={`Workspace ${ws}`}
-              aria-label={`Switch to workspace ${ws}`}
-            />
-          ))}
-        </div>
-
-        {/* Places Menu */}
-        <div className="relative" ref={placesRef}>
-          <button
-            onClick={() => setIsPlacesOpen(!isPlacesOpen)}
-            className="px-2 py-0.5 rounded flex items-center gap-1 hover:bg-white/15 active:bg-white/25 transition-colors focus-visible:ring-1 focus-visible:ring-amber-400"
-            aria-expanded={isPlacesOpen}
-            aria-haspopup="true"
-          >
-            <Folder className="w-3.5 h-3.5 text-amber-300" />
-            <span>Places</span>
-            <ChevronDown className="w-3 h-3 opacity-60" />
-          </button>
-
-          {isPlacesOpen && (
-            <div
-              className={`absolute top-8 left-0 w-52 rounded-xl py-1.5 shadow-2xl border backdrop-blur-xl z-50 animate-in fade-in slide-in-from-top-1 duration-150 ${
-                isLight
-                  ? "bg-white/90 border-gray-200 text-gray-900"
-                  : "bg-[#1f1f23]/90 border-white/15 text-white"
-              }`}
-              role="menu"
-            >
-              <div className="px-3 py-1 text-[10px] uppercase tracking-wider font-semibold opacity-50">
-                Navigation
-              </div>
-              <button
-                onClick={() => handleOpenApp("about")}
-                className="w-full px-3 py-1.5 flex items-center gap-2.5 hover:bg-amber-500/20 text-left transition-colors"
-                role="menuitem"
-              >
-                <User className="w-4 h-4 text-blue-400" />
-                <span>Home (About Me)</span>
-              </button>
-              <button
-                onClick={() => handleOpenApp("projects")}
-                className="w-full px-3 py-1.5 flex items-center gap-2.5 hover:bg-amber-500/20 text-left transition-colors"
-                role="menuitem"
-              >
-                <Globe className="w-4 h-4 text-emerald-400" />
-                <span>Projects</span>
-              </button>
-              <button
-                onClick={() => handleOpenApp("experience")}
-                className="w-full px-3 py-1.5 flex items-center gap-2.5 hover:bg-amber-500/20 text-left transition-colors"
-                role="menuitem"
-              >
-                <Briefcase className="w-4 h-4 text-amber-400" />
-                <span>Work Experience</span>
-              </button>
-              <button
-                onClick={() => handleOpenApp("stack")}
-                className="w-full px-3 py-1.5 flex items-center gap-2.5 hover:bg-amber-500/20 text-left transition-colors"
-                role="menuitem"
-              >
-                <Layers className="w-4 h-4 text-teal-400" />
-                <span>Technical Stack</span>
-              </button>
-              <button
-                onClick={() => handleOpenApp("notes")}
-                className="w-full px-3 py-1.5 flex items-center gap-2.5 hover:bg-amber-500/20 text-left transition-colors"
-                role="menuitem"
-              >
-                <BookOpen className="w-4 h-4 text-purple-400" />
-                <span>Education & Notes</span>
-              </button>
-              <button
-                onClick={() => handleOpenApp("resume")}
-                className="w-full px-3 py-1.5 flex items-center gap-2.5 hover:bg-amber-500/20 text-left transition-colors"
-                role="menuitem"
-              >
-                <FileText className="w-4 h-4 text-rose-400" />
-                <span>Resume / Downloads</span>
-              </button>
-              <div className="my-1 border-t border-white/10" />
-              <button
-                onClick={() => handleOpenApp("terminal")}
-                className="w-full px-3 py-1.5 flex items-center gap-2.5 hover:bg-amber-500/20 text-left transition-colors"
-                role="menuitem"
-              >
-                <Terminal className="w-4 h-4 text-gray-300" />
-                <span>Terminal</span>
-              </button>
-            </div>
-          )}
-        </div>
-
-        {/* Live Network status (shown only if available) */}
-        {networkInfo && (
-          <div className="hidden md:flex items-center gap-1 px-1.5 py-0.5 rounded text-[11px] opacity-75 font-mono">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span>{networkInfo}</span>
-          </div>
-        )}
-      </div>
-
-      {/* ── Centre Area: Live Clock & Date Popover ── */}
-      <div className="relative" ref={calendarRef}>
-        <button
-          onClick={() => setIsCalendarOpen(!isCalendarOpen)}
-          className="px-2.5 py-0.5 rounded font-medium hover:bg-white/15 active:bg-white/25 transition-colors flex items-center gap-1.5 focus-visible:ring-1 focus-visible:ring-amber-400"
-          aria-label={`Current date and time: ${dateStr} ${timeStr}`}
-        >
-          <span>{dateStr}</span>
-          <span className="font-semibold">{timeStr}</span>
-        </button>
-
-        {isCalendarOpen && (
+    <>
+      <header
+        className="fixed top-0 left-0 right-0 h-8 z-[1100] px-3 flex items-center justify-between text-xs select-none backdrop-blur-md transition-colors duration-200"
+        style={{
+          backgroundColor: "var(--topbar-bg)",
+          color: "var(--topbar-text)",
+        }}
+        role="banner"
+      >
+        {/* ── Left Zone: Workspaces (dots/pill), Places, Network speed (R1) ── */}
+        <div className="flex items-center gap-2">
+          {/* Workspace Indicator (R1: dot, wide active pill, dot) */}
           <div
-            className={`absolute top-8 left-1/2 -translate-x-1/2 w-64 rounded-2xl p-4 shadow-2xl border backdrop-blur-xl z-50 text-center animate-in fade-in duration-150 ${
-              isLight
-                ? "bg-white/90 border-gray-200 text-gray-900"
-                : "bg-[#1f1f23]/90 border-white/15 text-white"
-            }`}
+            className="flex items-center gap-1.5 px-2 py-1 cursor-pointer hover:bg-white/10 rounded-full transition-colors"
+            onClick={toggleActivities}
+            onWheel={handleWorkspaceWheel}
+            title="Workspaces & Activities (Click to toggle, Scroll to switch)"
+            aria-label="Workspaces"
           >
-            <div className="flex items-center justify-center gap-2 text-amber-400 font-semibold mb-1">
-              <CalendarIcon className="w-4 h-4" />
-              <span>VishnuOS Calendar</span>
-            </div>
-            <div className="text-xl font-bold">{timeStr}</div>
-            <div className="text-sm opacity-70 mb-3">{dateStr}</div>
-            <div className="p-2 rounded-lg bg-white/5 border border-white/10 text-xs">
-              <div className="font-medium text-amber-300">Open for Opportunities</div>
-              <div className="text-[11px] opacity-75 mt-0.5">
-                Full Stack Developer | DevOps | AI/ML
-              </div>
-            </div>
+            {[1, 2, 3].map((ws) => (
+              <button
+                key={ws}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  setActiveWorkspace(ws);
+                }}
+                className={`transition-all duration-150 ${
+                  activeWorkspace === ws
+                    ? "w-7 h-2 rounded-full bg-white shadow-sm"
+                    : "w-2 h-2 rounded-full bg-white/40 hover:bg-white/70"
+                }`}
+                title={`Workspace ${ws}`}
+                aria-label={`Switch to workspace ${ws}`}
+              />
+            ))}
           </div>
-        )}
-      </div>
 
-      {/* ── Right Area: Classic View, Quick Settings Pill, Theme, Settings ── */}
-      <div className="flex items-center gap-2">
-        {/* Skip to Classic View (Accessible / Recruiter link) */}
-        <button
-          onClick={() => setMode("classic")}
-          className="hidden sm:inline-flex px-2 py-0.5 rounded text-[11px] bg-amber-500/20 text-amber-300 hover:bg-amber-500/30 transition-colors border border-amber-500/30 font-medium"
-          title="Switch to Linear / Classic Portfolio"
-        >
-          Classic View
-        </button>
-
-        {/* Quick-settings pill (Wi-Fi, Volume, Battery) */}
-        <div className="relative" ref={quickSettingsRef}>
-          <button
-            onClick={() => setIsQuickSettingsOpen(!isQuickSettingsOpen)}
-            className="px-2 py-0.5 rounded-full flex items-center gap-1.5 bg-white/10 hover:bg-white/20 transition-colors focus-visible:ring-1 focus-visible:ring-amber-400"
-            aria-label="Quick Settings"
-          >
-            <Wifi className="w-3.5 h-3.5 text-emerald-400" />
-            {soundEnabled ? (
-              <Volume2 className="w-3.5 h-3.5 text-gray-300" />
-            ) : (
-              <VolumeX className="w-3.5 h-3.5 opacity-50" />
-            )}
-            {batteryInfo ? (
-              <div className="flex items-center gap-1">
-                {batteryInfo.charging ? (
-                  <BatteryCharging className="w-3.5 h-3.5 text-emerald-400" />
-                ) : (
-                  <Battery className="w-3.5 h-3.5 text-gray-300" />
-                )}
-                <span className="text-[10px] font-mono">{batteryInfo.level}%</span>
-              </div>
-            ) : (
-              <Battery className="w-3.5 h-3.5 text-emerald-400" />
-            )}
-          </button>
-
-          {isQuickSettingsOpen && (
-            <div
-              className={`absolute top-8 right-0 w-64 rounded-2xl p-3 shadow-2xl border backdrop-blur-xl z-50 animate-in fade-in slide-in-from-top-1 duration-150 ${
-                isLight
-                  ? "bg-white/90 border-gray-200 text-gray-900"
-                  : "bg-[#1f1f23]/90 border-white/15 text-white"
+          {/* Places Dropdown Menu */}
+          <div className="relative" ref={placesRef}>
+            <button
+              onClick={() => setIsPlacesOpen(!isPlacesOpen)}
+              className={`px-2.5 py-0.5 rounded-full flex items-center gap-1.5 transition-colors font-medium ${
+                isPlacesOpen ? "bg-white/20 text-white" : "hover:bg-white/10 text-white/90"
               }`}
+              aria-expanded={isPlacesOpen}
+              aria-haspopup="true"
             >
-              <div className="text-xs font-semibold uppercase tracking-wider opacity-60 mb-2 px-1">
-                Quick Settings
-              </div>
-              <div className="space-y-2">
-                {/* Theme Toggle */}
-                <div className="flex items-center justify-between p-2 rounded-xl bg-white/5 border border-white/10">
-                  <span className="text-xs">Theme</span>
-                  <div className="flex items-center gap-1">
-                    <button
-                      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-                      className="p-1 rounded-lg hover:bg-white/15 transition-colors"
-                      title="Toggle Dark/Light"
-                    >
-                      {theme === "dark" ? (
-                        <Moon className="w-4 h-4 text-amber-400" />
-                      ) : (
-                        <Sun className="w-4 h-4 text-amber-500" />
-                      )}
-                    </button>
-                  </div>
-                </div>
+              <span>Places</span>
+              <ChevronDown className="w-3 h-3 opacity-60" />
+            </button>
 
-                {/* Sound Toggle */}
-                <div className="flex items-center justify-between p-2 rounded-xl bg-white/5 border border-white/10">
-                  <span className="text-xs">Audio Effects</span>
-                  <button
-                    onClick={() => setSoundEnabled(!soundEnabled)}
-                    className={`px-2 py-0.5 rounded text-xs transition-colors ${
-                      soundEnabled ? "bg-amber-500 text-black font-semibold" : "bg-white/10 opacity-70"
-                    }`}
-                  >
-                    {soundEnabled ? "Enabled" : "Muted"}
-                  </button>
+            {isPlacesOpen && (
+              <div
+                className="absolute top-8 left-0 w-56 rounded-2xl py-2 shadow-2xl border border-white/10 z-[1200] animate-in fade-in duration-100"
+                style={{ backgroundColor: "#36363a", color: "#ffffff" }}
+                role="menu"
+              >
+                <div className="px-3.5 py-1 text-[10px] uppercase tracking-wider font-semibold opacity-50">
+                  Places
                 </div>
-
-                {/* Settings App Launcher */}
                 <button
-                  onClick={() => {
-                    openWindow("settings");
-                    setIsQuickSettingsOpen(false);
-                  }}
-                  className="w-full py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 font-medium text-xs flex items-center justify-center gap-1.5 transition-colors"
+                  onClick={() => handleOpenApp("about")}
+                  className="w-full px-3.5 py-1.5 flex items-center gap-3 hover:bg-white/10 text-left transition-colors text-xs"
+                  role="menuitem"
                 >
-                  <Sliders className="w-3.5 h-3.5" />
-                  <span>All System Settings</span>
+                  <User className="w-4 h-4 text-blue-400" />
+                  <span>Home</span>
+                </button>
+                <button
+                  onClick={() => handleOpenApp("projects")}
+                  className="w-full px-3.5 py-1.5 flex items-center gap-3 hover:bg-white/10 text-left transition-colors text-xs"
+                  role="menuitem"
+                >
+                  <Globe className="w-4 h-4 text-emerald-400" />
+                  <span>Projects</span>
+                </button>
+                <button
+                  onClick={() => handleOpenApp("experience")}
+                  className="w-full px-3.5 py-1.5 flex items-center gap-3 hover:bg-white/10 text-left transition-colors text-xs"
+                  role="menuitem"
+                >
+                  <Briefcase className="w-4 h-4 text-amber-400" />
+                  <span>Experience</span>
+                </button>
+                <button
+                  onClick={() => handleOpenApp("stack")}
+                  className="w-full px-3.5 py-1.5 flex items-center gap-3 hover:bg-white/10 text-left transition-colors text-xs"
+                  role="menuitem"
+                >
+                  <Layers className="w-4 h-4 text-teal-400" />
+                  <span>Technical Stack</span>
+                </button>
+                <button
+                  onClick={() => handleOpenApp("notes")}
+                  className="w-full px-3.5 py-1.5 flex items-center gap-3 hover:bg-white/10 text-left transition-colors text-xs"
+                  role="menuitem"
+                >
+                  <BookOpen className="w-4 h-4 text-purple-400" />
+                  <span>Education & Notes</span>
+                </button>
+                <button
+                  onClick={() => handleOpenApp("resume")}
+                  className="w-full px-3.5 py-1.5 flex items-center gap-3 hover:bg-white/10 text-left transition-colors text-xs"
+                  role="menuitem"
+                >
+                  <FileText className="w-4 h-4 text-rose-400" />
+                  <span>Documents (Resume)</span>
+                </button>
+                <div className="my-1.5 border-t border-white/10" />
+                <button
+                  onClick={() => handleOpenApp("terminal")}
+                  className="w-full px-3.5 py-1.5 flex items-center gap-3 hover:bg-white/10 text-left transition-colors text-xs"
+                  role="menuitem"
+                >
+                  <Terminal className="w-4 h-4 text-gray-300" />
+                  <span>Terminal</span>
                 </button>
               </div>
-            </div>
-          )}
+            )}
+          </div>
+
+          {/* Network Speed Readout (R1: ⇅ 8.8 KB/s) */}
+          <div className="flex items-center gap-1.5 px-2 py-0.5 rounded text-[11px] font-mono tabular-nums text-white/80">
+            <NetworkSpeedIcon />
+            <span>8.8 KB/s</span>
+          </div>
         </div>
 
-        {/* Direct Settings Gear Icon */}
-        <button
-          onClick={() => openWindow("settings")}
-          className="p-1 rounded hover:bg-white/15 active:bg-white/25 transition-colors focus-visible:ring-1 focus-visible:ring-amber-400"
-          title="Open Settings"
-          aria-label="Open Settings"
-        >
-          <Settings className="w-3.5 h-3.5" />
-        </button>
-      </div>
-    </header>
+        {/* ── Center Zone: Live Date & Time with Open Highlight Pill (R1, R3) ── */}
+        <div className="relative" ref={dateMenuRef}>
+          <button
+            onClick={() => {
+              setIsDateMenuOpen(!isDateMenuOpen);
+              setIsQuickSettingsOpen(false);
+            }}
+            className={`px-3 py-1 rounded-full font-medium transition-colors flex items-center gap-2 tabular-nums ${
+              isDateMenuOpen
+                ? "bg-white/20 text-white shadow-sm ring-1 ring-white/20"
+                : "hover:bg-white/10 text-white/90"
+            }`}
+            aria-label={`Current date and time: ${dateStr} ${timeStr}`}
+            aria-expanded={isDateMenuOpen}
+          >
+            <span>{dateStr}</span>
+            <span className="font-semibold">{timeStr}</span>
+          </button>
+        </div>
+
+        {/* ── Right Zone: Tray Icons & Quick Settings Pill (R1, R4) ── */}
+        <div className="flex items-center gap-3">
+          {/* Classic View Shortcut */}
+          <button
+            onClick={() => setMode("classic")}
+            className="hidden sm:inline-flex px-2 py-0.5 rounded text-[11px] bg-[var(--accent)]/20 text-[var(--accent)] hover:bg-[var(--accent)]/30 transition-colors border border-[var(--accent)]/40 font-medium"
+            title="Switch to Linear / Classic Portfolio"
+          >
+            Classic View
+          </button>
+
+          {/* Quick Settings Pill (Wi-Fi, Volume, Battery 79%) */}
+          <div className="relative" ref={quickSettingsRef}>
+            <button
+              onClick={() => {
+                setIsQuickSettingsOpen(!isQuickSettingsOpen);
+                setIsDateMenuOpen(false);
+              }}
+              className={`px-3 py-1 rounded-full flex items-center gap-2.5 transition-colors ${
+                isQuickSettingsOpen
+                  ? "bg-white/20 text-white ring-1 ring-white/20"
+                  : "bg-white/10 hover:bg-white/15 text-white"
+              }`}
+              aria-label="Quick Settings"
+              aria-expanded={isQuickSettingsOpen}
+            >
+              <Wifi className="w-3.5 h-3.5 text-white" />
+              {soundEnabled ? (
+                <Volume2 className="w-3.5 h-3.5 text-white" />
+              ) : (
+                <VolumeX className="w-3.5 h-3.5 text-white/70" />
+              )}
+              <div className="flex items-center gap-1">
+                <Battery className="w-3.5 h-3.5 text-white" />
+                <span className="text-[11px] font-mono tabular-nums font-medium">79%</span>
+              </div>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Popovers */}
+      {isDateMenuOpen && (
+        <DateMenuPopover onClose={() => setIsDateMenuOpen(false)} />
+      )}
+      {isQuickSettingsOpen && (
+        <QuickSettingsPopover onClose={() => setIsQuickSettingsOpen(false)} />
+      )}
+    </>
   );
 };

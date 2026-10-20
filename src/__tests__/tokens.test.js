@@ -28,7 +28,7 @@ describe("Design Tokens & Themes", () => {
 
   it("defines layout dimensions", () => {
     expect(LAYOUT.topbarHeight).toBe(32);
-    expect(LAYOUT.dockHeight).toBe(64);
+    expect(LAYOUT.dockHeight).toBe(84);
   });
 });
 

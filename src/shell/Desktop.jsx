@@ -7,7 +7,6 @@ import { WindowFrame } from "./WindowFrame";
 import { Activities } from "./Activities";
 import { ContextMenu } from "./ContextMenu";
 import { BootScreen } from "./BootScreen";
-import { LensingFilter } from "../components/glass/LensingFilter";
 import { AppContent } from "../apps/registry";
 import { useWindowStore } from "../store/windowStore";
 import { useSettingsStore } from "../store/settingsStore";
@@ -72,9 +71,6 @@ export const Desktop = () => {
       className="relative w-screen h-screen overflow-hidden select-none"
       onContextMenu={handleDesktopContextMenu}
     >
-      {/* SVG Lensing Filter Definition */}
-      <LensingFilter />
-
       {/* Boot Screen */}
       {!bootDone && (
         <BootScreen

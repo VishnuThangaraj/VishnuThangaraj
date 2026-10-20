@@ -1,0 +1,54 @@
+{
+  "references": {
+    "R1": {
+      "file": "R1_desktop.png",
+      "original_file": "Screenshot From 2026-10-20 08-00-00-1.png",
+      "scene": "desktop",
+      "description": "Desktop: top bar, desktop icons, floating dock",
+      "width": 1920,
+      "height": 1080,
+      "mode": "RGBA"
+    },
+    "R2": {
+      "file": "R2_activities_overview.png",
+      "original_file": "Screenshot From 2026-10-20 08-00-15.png",
+      "scene": "overview",
+      "description": "Activities overview: search, workspace strip, app grid, page dots",
+      "width": 1920,
+      "height": 1080,
+      "mode": "RGBA"
+    },
+    "R3": {
+      "file": "R3_date_menu.png",
+      "original_file": "Screenshot From 2026-10-20 08-00-27.png",
+      "scene": "date_menu",
+      "description": "Date menu: notifications and media, calendar, Today, World Clocks",
+      "width": 1920,
+      "height": 1080,
+      "mode": "RGBA"
+    },
+    "R4": {
+      "file": "R4_quick_settings.png",
+      "original_file": "Screenshot From 2026-10-20 08-00-38.png",
+      "scene": "quick_settings",
+      "description": "Quick settings menu",
+      "width": 1920,
+      "height": 1080,
+      "mode": "RGBA"
+    },
+    "R5": {
+      "file": "R5_files_window.png",
+      "original_file": "Screenshot From 2026-10-20 08-00-48.png",
+      "scene": "files_window",
+      "description": "Files app window",
+      "width": 1920,
+      "height": 1080,
+      "mode": "RGBA"
+    }
+  },
+  "missing_extras": [
+    "Light-theme versions of R1-R5 (Settings -> Appearance -> Light)",
+    "Screen recordings (5-10s) of window animations and overview transition",
+    "Screenshots of secondary apps (Settings, Terminal, Text Editor, Calculator, etc.)"
+  ]
+}

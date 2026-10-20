@@ -1,9 +1,19 @@
 /**
- * VishnuOS Design System Tokens
- * Defines material tiers, themes, accents, spring physics, and layout dimensions.
+ * VishnuOS Design System Tokens (Workflow v3 Reference-Fidelity)
+ * Canonical GNOME / Ubuntu design tokens extracted from references R1–R5.
  */
 
 export const ACCENTS = {
+  olive: {
+    id: "olive",
+    name: "GNOME Olive Green",
+    primary: "#4b8501",
+    hover: "#669727",
+    soft: "rgba(75, 133, 1, 0.20)",
+    border: "rgba(75, 133, 1, 0.4)",
+    glow: "rgba(75, 133, 1, 0.3)",
+    textOnAccent: "#ffffff",
+  },
   amber: {
     id: "amber",
     name: "Warm Amber",
@@ -66,50 +76,91 @@ export const ACCENTS = {
   },
 };
 
-export const GLASS_TIERS = {
-  t0: {
-    id: "t0",
-    name: "Solid / High Contrast",
-    description: "Opaque tinted surfaces, solid borders, zero blur. Ideal for battery saving or high contrast.",
+export const SURFACES = {
+  dark: {
+    topbar: "rgba(25, 29, 17, 0.95)",
+    topbarPill: "rgba(255, 255, 255, 0.15)",
+    dock: "#171a18",
+    dockBorder: "rgba(255, 255, 255, 0.08)",
+    popover: "#36363a",
+    popoverCard: "#54545a",
+    windowHeader: "#1d1d20",
+    windowSidebar: "#393939",
+    windowContent: "#1d1d20",
+    searchPill: "#3e4238",
+    textPrimary: "#ffffff",
+    textSecondary: "#b0b0b0",
+    textDim: "#808080",
+    folderBlue: "#5294e2",
   },
-  t1: {
-    id: "t1",
-    name: "CSS Glass (Default)",
-    description: "Backdrop blur, saturation, specular rim highlight, and adaptive shadows across all browsers.",
-  },
-  t2: {
-    id: "t2",
-    name: "Liquid Glass Lensing",
-    description: "Chromium edge refraction lensing filter with specular reflection.",
+  light: {
+    topbar: "rgba(240, 240, 240, 0.95)",
+    topbarPill: "rgba(0, 0, 0, 0.08)",
+    dock: "#f0f0f2",
+    dockBorder: "rgba(0, 0, 0, 0.10)",
+    popover: "#f6f6f8",
+    popoverCard: "#ffffff",
+    windowHeader: "#fafafc",
+    windowSidebar: "#ebebed",
+    windowContent: "#ffffff",
+    searchPill: "#e4e4e6",
+    textPrimary: "#1a1a1a",
+    textSecondary: "#5c5c5c",
+    textDim: "#8c8c8c",
+    folderBlue: "#3584e4",
   },
 };
 
-export const SPRINGS = {
-  dock: {
-    stiffness: 180,
-    damping: 14,
-    mass: 0.15,
-  },
-  window: {
-    stiffness: 240,
-    damping: 22,
-    mass: 0.25,
-  },
-  sheet: {
-    stiffness: 260,
-    damping: 24,
-    mass: 0.3,
-  },
-  fade: {
-    duration: 180, // ms
+export const RADIUS = {
+  none: 0,
+  sm: 6,
+  md: 8,
+  card: 12,
+  window: 12,
+  popover: 20,
+  quickSettings: 22,
+  dock: 20,
+  searchPill: 18,
+  pill: 9999,
+};
+
+export const MOTION = {
+  easeOut: "cubic-bezier(0, 0, 0.2, 1)",
+  durationQuick: 150,
+  durationNormal: 200,
+  durationModerate: 250,
+  reduced: {
+    durationQuick: 0,
+    durationNormal: 0,
+    durationModerate: 0,
   },
 };
 
 export const LAYOUT = {
   topbarHeight: 32,
-  dockHeight: 64,
+  dockHeight: 84,
+  dockWidth: 839,
+  dockBottomMargin: 4,
+  dockRadius: 20,
   minWindowWidth: 380,
   minWindowHeight: 280,
-  defaultWindowWidth: 800,
-  defaultWindowHeight: 520,
+  defaultWindowWidth: 890,
+  defaultWindowHeight: 550,
+  desktopIconColumnX: 64,
+  desktopIconPitchY: 120,
+  desktopIconSize: 56,
+};
+
+// Legacy compatibility stubs for previous tests
+export const GLASS_TIERS = {
+  t0: { id: "t0", name: "Solid / High Contrast" },
+  t1: { id: "t1", name: "Flat GNOME (Default)" },
+  t2: { id: "t2", name: "GNOME Translucent" },
+};
+
+export const SPRINGS = {
+  dock: { stiffness: 180, damping: 14, mass: 0.15 },
+  window: { stiffness: 240, damping: 22, mass: 0.25 },
+  sheet: { stiffness: 260, damping: 24, mass: 0.3 },
+  fade: { duration: 180 },
 };

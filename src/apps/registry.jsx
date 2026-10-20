@@ -33,9 +33,21 @@ const SettingsApp = lazy(() =>
 const TrashApp = lazy(() =>
   import("./TrashApp").then((m) => ({ default: m.TrashApp }))
 );
+const FilesApp = lazy(() =>
+  import("./FilesApp").then((m) => ({ default: m.FilesApp }))
+);
+const CalculatorApp = lazy(() =>
+  import("./CalculatorApp").then((m) => ({ default: m.CalculatorApp }))
+);
+const CalendarApp = lazy(() =>
+  import("./CalendarApp").then((m) => ({ default: m.CalendarApp }))
+);
 
 const APP_COMPONENTS = {
   about: AboutApp,
+  files: FilesApp,
+  calculator: CalculatorApp,
+  calendar: CalendarApp,
   experience: ExperienceApp,
   projects: ProjectsApp,
   code: CodeApp,

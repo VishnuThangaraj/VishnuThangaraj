@@ -31,7 +31,7 @@ export const ContactApp = () => {
       {/* Header Info */}
       <div className="border-b border-white/10 pb-4">
         <h1 className="text-xl font-bold text-white flex items-center gap-2">
-          <Mail className="w-5 h-5 text-amber-400" />
+          <Mail className="w-5 h-5 text-[var(--accent)]" />
           <span>Contact Vishnu Thangaraj</span>
         </h1>
         <p className="text-xs text-gray-400 mt-1">
@@ -53,7 +53,7 @@ export const ContactApp = () => {
           </div>
           <button
             onClick={() => copyToClipboard(email, "email")}
-            className="mt-3 py-1.5 px-3 rounded-lg bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/30 text-xs font-medium flex items-center justify-center gap-1.5 transition-colors"
+            className="mt-3 py-1.5 px-3 rounded-lg bg-[var(--accent)]/20 hover:bg-[var(--accent)]/30 text-[var(--accent)] border border-[var(--accent)]/30 text-xs font-medium flex items-center justify-center gap-1.5 transition-colors"
           >
             {copiedKey === "email" ? (
               <>

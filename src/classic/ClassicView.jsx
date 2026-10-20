@@ -19,38 +19,38 @@ export const ClassicView = () => {
   const setMode = useSettingsStore((s) => s.setMode);
 
   return (
-    <div className="min-h-screen bg-[#0f172a] text-gray-100 font-sans selection:bg-amber-500/30 selection:text-white">
+    <div className="min-h-screen bg-[#121814] text-gray-100 font-sans selection:bg-[var(--accent)]/30 selection:text-white">
       {/* Skip Link for A11y */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-amber-500 focus:text-black focus:font-bold focus:rounded-lg"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-[var(--accent)] focus:text-white focus:font-bold focus:rounded-lg"
       >
         Skip to main content
       </a>
 
       {/* ── Sticky Top Navigation ── */}
-      <header className="sticky top-0 z-40 bg-[#0f172a]/90 backdrop-blur-md border-b border-white/10 px-6 py-3.5 flex items-center justify-between">
+      <header className="sticky top-0 z-40 bg-[#121814]/90 backdrop-blur-md border-b border-white/10 px-6 py-3.5 flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="font-bold text-base text-white tracking-tight">
             {profile.identity.name}
           </span>
-          <span className="hidden sm:inline-block text-xs font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded-full border border-amber-500/20">
+          <span className="hidden sm:inline-block text-xs font-mono text-[var(--accent)] bg-[var(--accent)]/10 px-2 py-0.5 rounded-full border border-[var(--accent)]/20">
             Portfolio
           </span>
         </div>
 
         <nav aria-label="Page navigation" className="hidden md:flex items-center gap-6 text-xs font-medium text-gray-300">
-          <a href="#about" className="hover:text-amber-400 transition-colors">About</a>
-          <a href="#experience" className="hover:text-amber-400 transition-colors">Experience</a>
-          <a href="#projects" className="hover:text-amber-400 transition-colors">Projects</a>
-          <a href="#skills" className="hover:text-amber-400 transition-colors">Skills</a>
-          <a href="#education" className="hover:text-amber-400 transition-colors">Education</a>
-          <a href="#contact" className="hover:text-amber-400 transition-colors">Contact</a>
+          <a href="#about" className="hover:text-[var(--accent)] transition-colors">About</a>
+          <a href="#experience" className="hover:text-[var(--accent)] transition-colors">Experience</a>
+          <a href="#projects" className="hover:text-[var(--accent)] transition-colors">Projects</a>
+          <a href="#skills" className="hover:text-[var(--accent)] transition-colors">Skills</a>
+          <a href="#education" className="hover:text-[var(--accent)] transition-colors">Education</a>
+          <a href="#contact" className="hover:text-[var(--accent)] transition-colors">Contact</a>
         </nav>
 
         <button
           onClick={() => setMode("desktop")}
-          className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-black font-semibold text-xs transition-colors shadow-md shadow-amber-500/20"
+          className="flex items-center gap-2 px-3.5 py-1.5 rounded-xl bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-semibold text-xs transition-colors shadow-md shadow-[var(--accent)]/20"
           title="Switch to Interactive Desktop OS Mode"
         >
           <Laptop className="w-3.5 h-3.5" />

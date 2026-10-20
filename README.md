@@ -1,36 +1,76 @@
-# VishnuOS Portfolio (v2.0)
+# VishnuOS Portfolio (v3.0 — Reference-Fidelity GNOME Rebuild)
 
-> A modern Linux Desktop OS portfolio rendered in macOS Tahoe "Liquid Glass" material with fluid window management, responsive phone mode, and accessible linear view.
+> A faithful, pixel-precise **GNOME/Ubuntu Adwaita desktop operating system** portfolio engineered in React 19, Tailwind CSS, and Zustand, measured and verified against reference screenshots.
 
 **Owner:** Vishnu Thangaraj (Full Stack Developer | DevOps | AI/ML)  
 **Live URL:** [https://vishnuthangaraj.github.io](https://vishnuthangaraj.github.io)  
-**Architecture:** Vite + React 19 + Tailwind CSS + Zustand-compatible Store + Vitest
+**Architecture:** Vite + React 19 + Tailwind CSS + Zustand-compatible Store + Vitest + Virtual File System  
 
 ---
 
-## 🖥️ Architecture & Key Features
+## 🖥️ System Architecture & Reference Fidelity
 
-VishnuOS is designed around a single source of truth (`src/data/profile.js`) rendered in three modes:
+VishnuOS v3 is rebuilt from the ground up to faithfully reflect modern GNOME desktop specifications (as captured in references R1–R5):
 
-1. **Desktop OS Mode:**
-   - **Translucent Top Bar:** Workspace dots, Places navigation menu, live dynamic clock with date overview popover, quick-settings pill (Wi-Fi, volume, battery), and direct settings gear.
-   - **Column Desktop Icons:** Top-left column with Home, IronParadise, SHNOOR International, FizzType, IICT, Terminal, Stack, and Resume (with shortcut badges and drag snapping).
-   - **Floating Dock:** Bottom-center pill with spring proximity magnification, running app indicator dots, launch bounce animation, tooltips, Trash easter egg, and Activities launch button.
-   - **Window Manager:** Fluid window dragging with pointer capture, 8-way resize handles, traffic light window controls (close, minimize, maximize), edge snapping (left half, right half, full screen) with ghost preview overlay, and inactive window material swapping.
-   - **Activities & Launchpad:** Instant `Ctrl+K` overview displaying open window tiles and searchable application grid.
+1. **Top Bar (32px Height — R1, R3, R4):**
+   - **Workspace Indicator:** Dot, wide active pill (`w-7 h-2 rounded-full`), dot representing 3 workspaces. Supports click and mousewheel switching.
+   - **Places Menu:** Instant navigation to Home, Projects, Documents, Experience, Notes, Stack, and Terminal.
+   - **Network Speed Readout:** `⇅ 8.8 KB/s` monospace bandwidth monitor.
+   - **Live Clock & Date:** Formatted `Tue Oct 20  7:59 AM` with minute ticks. Encased in a highlight pill when the date menu is open.
+   - **Quick Settings Pill:** Consolidated status pill holding Wi-Fi, volume, battery status, and `79%` readout.
 
-2. **Phone Mode (`< 768px` or touch):**
-   - iOS/Android style mobile home screen with glass icon grid, status bar, and pinned bottom dock.
-   - Full-screen app sheets with native back button and header.
+2. **Floating Application Dock (839×84 px — R1, R5):**
+   - Floating geometry centered horizontally with 4px bottom offset and 20px border radius.
+   - 48×48 px icons at 68px pitch. **Zero macOS dock magnification or springy bounce.**
+   - Canonical GNOME Olive Green (`#4b8501`) 4px running indicator dot under active applications.
+   - Show Apps 9-dot grid button toggles Activities overview.
 
-3. **Classic View (`#/classic`):**
-   - Clean, semantic, lightning-fast linear portfolio for recruiters in a hurry and screen readers.
-   - 100% accessible with skip links, structured semantic sections, and print-friendly styles.
+3. **Activities Overview (R2):**
+   - Background blur (20px) and dimming overlay.
+   - **Search Pill:** Centered 370×36px pill with live search filtering across apps and content.
+   - **Workspace Strip:** 3 workspace thumbnails with active workspace highlight.
+   - **App Grid:** 10 columns × 3 rows per page with ~64px icons, 2×2 mini icon folder previews (Developer Tools), pagination dots, and circular next-page arrow button.
 
-4. **Liquid Glass Material System:**
-   - **T0 (Solid):** Opaque tinted surfaces, strong borders, zero blur (WCAG AAA contrast or reduce-transparency).
-   - **T1 (CSS Glass - Default):** Backdrop blur, saturation, specular rim highlight, and adaptive drop shadows.
-   - **T2 (Lensing):** SVG displacement edge refraction filter for Chromium desktop.
+4. **Date Menu Popover (754×645 px — R3):**
+   - **Left Column:** Notifications panel with clear action; Media Player card with play/pause/skip controls.
+   - **Right Column:** Date header, month calendar grid with `#4b8501` filled circle for today and event dots, Today agenda card, and World Clocks card (Coimbatore IST & St. Louis MO).
+
+5. **Quick Settings Popover (402×476 px — R4):**
+   - Battery pill (`79%`), round buttons for Screenshot, Settings, Lock, and Power.
+   - Volume slider with headphone icon and `#4b8501` fill.
+   - Two-column grid of 180×48px tiles: Wi-Fi, Bluetooth, Power Mode, Night Light, Dark Style toggle, Do Not Disturb, Keyboard, Airplane Mode, Caffeine (Screen Wake Lock API), and Connect with Me.
+
+6. **Files Window (890×550 px — R5):**
+   - Integrated Libadwaita split header bar (47px height).
+   - Sidebar header: Search, Files title, kebab options menu.
+   - Content header: Back/Forward buttons, PathBar breadcrumb pill (`🏠 Home ⋮`), list/grid toggle, circular right-aligned window buttons (minimize, maximize, close).
+   - Sidebar (177px, `#393939`): Home, Recent, Starred, Network, Trash, Documents, Music, Pictures, Videos, Downloads.
+   - Content area (`#1d1d20`): 4-column icon grid with blue folder icons (`#5294e2`) and emblem overlays.
+
+7. **Virtual File System (VFS):**
+   - Complete directory tree driven directly from `src/data/profile.js`:
+     `/home/vishnu/Documents`, `/home/vishnu/Projects`, `/home/vishnu/Experience`, `/home/vishnu/Skills`, `/home/vishnu/Education`, `/home/vishnu/Contact`.
+   - Accessible via Files app or GNOME Terminal (`ls`, `cd`, `pwd`, `cat`).
+
+8. **Adaptive Modes:**
+   - **Phone Mode (`< 768px`):** GNOME-mobile inspired compact status bar, full-screen apps, and quick launcher.
+   - **Classic View (`#/classic`):** 100% accessible, semantic, printable linear portfolio.
+
+---
+
+## 🎨 Design System Tokens
+
+| Token | Dark Theme | Light Theme | Description |
+|---|---|---|---|
+| `--accent` | `#4b8501` | `#4b8501` | Canonical GNOME Olive Green |
+| `--accent-hover` | `#669727` | `#5d9e05` | Active / Hover Green |
+| `--topbar-bg` | `rgba(25, 29, 17, 0.95)` | `rgba(240, 240, 240, 0.95)` | Shell Top Bar |
+| `--dock-bg` | `#171a18` | `#f0f0f2` | Floating Dock Surface |
+| `--popover-bg` | `#36363a` | `#f6f6f8` | Popover Surface (Date/Quick) |
+| `--window-header-bg` | `#1d1d20` | `#fafafc` | Integrated Header Bar |
+| `--window-content-bg` | `#1d1d20` | `#ffffff` | Window Interior |
+| `--window-sidebar-bg` | `#393939` | `#ebebed` | Files / Settings Sidebar |
+| `--folder-blue` | `#5294e2` | `#3584e4` | Yaru Folder Blue |
 
 ---
 
@@ -42,72 +82,31 @@ VishnuOS is designed around a single source of truth (`src/data/profile.js`) ren
 
 ### Installation
 ```bash
-# Clone the repository
+# Clone repository
 git clone https://github.com/VishnuThangaraj/VishnuThangaraj.git
 cd VishnuThangaraj
 
 # Install dependencies
 pnpm install
 
-# Start development server
+# Start local development server
 pnpm run dev
 ```
 
-### Scripts
+### Build & Verification Commands
 | Command | Description |
 |---|---|
-| `pnpm run dev` | Starts Vite local development server on port 5155 |
-| `pnpm run build` | Produces production build in `dist/` with code-split app chunks |
-| `pnpm run lint` | Runs ESLint across all JavaScript/JSX files |
-| `pnpm run test` | Runs the full Vitest suite (tokens, store, contrast, parity, a11y) |
-| `pnpm run preview` | Previews the production build locally |
+| `pnpm run dev` | Starts Vite local development server |
+| `pnpm run build` | Compiles optimized production bundle in `dist/` |
+| `pnpm run lint` | Runs ESLint 10 code quality & syntax checks |
+| `pnpm run test` | Executes Vitest unit, contrast, a11y, and parity suites |
+| `pnpm run preview` | Previews production build locally |
+| `python3 tests/fidelity/fidelity_gate.py --self-test` | Runs Fidelity Gate verification |
 
 ---
 
-## 🛠️ How to Edit Content
+## 📜 Open Source Licenses
 
-All portfolio content is centralized in **one single file**:
-`src/data/profile.js`
-
-- **Update Experience:** Add or modify items in `profile.experience`.
-- **Update Projects:** Add or modify items in `profile.projects`.
-- **Update Skills:** Modify items in `profile.skills`.
-- **Update Education & Honors:** Modify `profile.education` or `profile.honors`.
-
-Changes made to `src/data/profile.js` automatically propagate across:
-- All Desktop OS windows (About, Experience, Projects, Code, Terminal, Stack, Notes, Contact, Resume)
-- Phone mode home screen and sheets
-- Classic linear view
-- Terminal command responses
-
----
-
-## 🧩 How to Add a New Application
-
-1. Create your app component in `src/apps/MyNewApp.jsx`.
-2. Register the app in `src/apps/registry.jsx`:
-   ```javascript
-   const MyNewApp = lazy(() => import("./MyNewApp").then(m => ({ default: m.MyNewApp })));
-   ```
-3. Add the app metadata to `src/store/windowStore.js` and `DOCK_APPS` in `src/shell/Dock.jsx`.
-
----
-
-## 🐳 Docker Deployment
-
-A lightweight multi-stage Docker build is included:
-
-```bash
-# Build Docker image
-docker build -t vishnu-os .
-
-# Run container
-docker run -p 8080:80 vishnu-os
-```
-Visit `http://localhost:8080` in your browser.
-
----
-
-## 📄 License & Attribution
-Designed and built by **Vishnu Thangaraj** • 2026.
-Original wallpaper and icon designs. Zero external tracking.
+- **Code:** Released under the [MIT License](LICENSES.md).
+- **Typography:** Ubuntu Font Family distributed under the [Ubuntu Font Licence v1.0](LICENSES.md).
+- **Icons:** Custom SVG icons designed in the Yaru visual language; Lucide icons under ISC.

@@ -1,12 +1,14 @@
 import { useState } from "react";
+import { FolderIcon } from "../components/icons/GnomeIcons";
 import { AppIcon } from "../components/AppIcon";
-import { ArrowUpRight } from "lucide-react";
 
 export const DesktopIcon = ({
   icon,
   label,
-  color = "#42a5f5",
+  color = "#5294e2",
   isShortcut = false,
+  isFolder = true,
+  emblem = null,
   isSelected = false,
   onSelect,
   onOpen,
@@ -45,30 +47,26 @@ export const DesktopIcon = ({
       }}
       onKeyDown={handleKeyDown}
       onContextMenu={onContextMenu}
-      className={`group relative flex flex-col items-center justify-center w-24 h-24 p-2 rounded-xl cursor-pointer transition-all outline-none select-none ${
+      className={`group relative flex flex-col items-center justify-start w-[88px] min-h-[104px] p-2 rounded-xl cursor-pointer transition-colors duration-150 outline-none select-none ${
         isSelected
-          ? "bg-white/20 ring-1 ring-white/40 shadow-lg backdrop-blur-sm"
-          : "hover:bg-white/10"
+          ? "bg-[var(--accent)]/35 ring-1 ring-[var(--accent)] text-white shadow-md"
+          : "hover:bg-white/10 text-white/95"
       }`}
     >
-      {/* Icon with Liquid Glass badge */}
-      <div className="relative w-12 h-12 rounded-2xl flex items-center justify-center bg-black/30 border border-white/20 shadow-md group-hover:scale-105 group-hover:shadow-lg transition-transform">
-        <AppIcon name={icon} className="w-6 h-6" style={{ color }} />
-
-        {/* Shortcut arrow badge */}
-        {isShortcut && (
-          <div
-            className="absolute -bottom-1 -left-1 w-4 h-4 rounded-full bg-black/70 border border-white/40 flex items-center justify-center text-white"
-            title="Shortcut"
-          >
-            <ArrowUpRight className="w-2.5 h-2.5 text-amber-300" />
+      {/* Icon Area */}
+      <div className="w-14 h-14 flex items-center justify-center">
+        {isFolder ? (
+          <FolderIcon size={56} emblem={isShortcut ? "shortcut" : emblem} />
+        ) : (
+          <div className="w-12 h-12 rounded-xl bg-white/10 flex items-center justify-center p-2 shadow">
+            <AppIcon name={icon} className="w-8 h-8" style={{ color }} />
           </div>
         )}
       </div>
 
-      {/* Label */}
+      {/* Label: 2-line wrapped & ellipsized with subtle text drop-shadow (R1) */}
       <span
-        className="mt-1.5 text-center text-xs font-medium text-white tracking-wide truncate max-w-[84px] drop-shadow-[0_1px_2px_rgba(0,0,0,0.9)]"
+        className="mt-1 text-center text-xs font-normal text-white leading-tight line-clamp-2 drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)] px-1"
         title={label}
       >
         {label}

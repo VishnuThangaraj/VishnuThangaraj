@@ -3,6 +3,9 @@ import { LAYOUT } from "../theme/tokens";
 
 const APP_METADATA = {
   about: { title: "About Vishnu", icon: "User", width: 780, height: 540 },
+  files: { title: "Files", icon: "Folder", width: 890, height: 550 },
+  calculator: { title: "Calculator", icon: "Calculator", width: 340, height: 440 },
+  calendar: { title: "Calendar", icon: "Calendar", width: 800, height: 520 },
   experience: { title: "Work Experience", icon: "Briefcase", width: 740, height: 520 },
   projects: { title: "Projects Browser", icon: "Globe", width: 840, height: 560 },
   code: { title: "Code Editor", icon: "Code2", width: 820, height: 540 },

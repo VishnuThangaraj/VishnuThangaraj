@@ -1,43 +1,64 @@
-import { useState, useEffect, useRef } from "react";
-import { Search, X, Activity } from "lucide-react";
+import { useState, useEffect } from "react";
+import { ChevronRight } from "lucide-react";
 import { AppIcon } from "../components/AppIcon";
+import { SearchPill } from "../components/primitives/SearchPill";
 import { useWindowStore } from "../store/windowStore";
 
-const ALL_APPS = [
-  { id: "about", name: "About Me", icon: "User", color: "#60a5fa", desc: "Biography & overview" },
-  { id: "experience", name: "Experience", icon: "Briefcase", color: "#fbbf24", desc: "SHNOOR Intl & IICT" },
-  { id: "projects", name: "Projects", icon: "Globe", color: "#34d399", desc: "IronParadise & FizzType" },
-  { id: "code", name: "Code Editor", icon: "Code2", color: "#818cf8", desc: "Source files & repos" },
-  { id: "terminal", name: "Terminal", icon: "Terminal", color: "#e2e8f0", desc: "Interactive bash CLI" },
-  { id: "stack", name: "Tech Stack", icon: "Layers", color: "#2dd4bf", desc: "Skills database & tools" },
-  { id: "notes", name: "Notes & Edu", icon: "BookOpen", color: "#c084fc", desc: "MSc & BCA academic records" },
-  { id: "contact", name: "Contact", icon: "Mail", color: "#f472b6", desc: "Email, GitHub, LinkedIn" },
-  { id: "resume", name: "Resume", icon: "FileText", color: "#fb7185", desc: "Printable CV & highlights" },
-  { id: "settings", name: "Settings", icon: "Settings", color: "#94a3b8", desc: "Theme, glass & controls" },
-  { id: "trash", name: "Trash", icon: "Trash2", color: "#64748b", desc: "Easter egg" },
+const GRID_APPS_PAGE_1 = [
+  { id: "brave", name: "Brave", icon: "Globe", color: "#fb542b", category: "Web" },
+  { id: "files", name: "Files", icon: "Folder", color: "#5294e2", category: "System" },
+  { id: "thunderbird", name: "Thunderbird", icon: "Mail", color: "#3584e4", category: "Mail" },
+  { id: "chrome", name: "Chrome", icon: "Globe", color: "#ea4335", category: "Web" },
+  { id: "capture", name: "Document Viewer", icon: "FileText", color: "#f87171", category: "Office" },
+  { id: "obsidian", name: "Obsidian", icon: "BookOpen", color: "#818cf8", category: "Notes" },
+  { id: "terminal", name: "Terminal", icon: "Terminal", color: "#e2e8f0", category: "System" },
+  { id: "mongodb", name: "MongoDB Compass", icon: "Database", color: "#10b981", category: "Development" },
+  { id: "code", name: "VS Code", icon: "Code2", color: "#007acc", category: "Development" },
+  { id: "whatsapp", name: "Contact / Chat", icon: "MessageCircle", color: "#25d366", category: "Communication" },
+
+  // Row 2
+  { id: "projects", name: "Projects Browser", icon: "Layers", color: "#34d399", category: "Portfolio" },
+  { id: "experience", name: "Experience", icon: "Briefcase", color: "#fbbf24", category: "Portfolio" },
+  { id: "stack", name: "Tech Stack", icon: "Server", color: "#2dd4bf", category: "Development" },
+  { id: "notes", name: "Notes & Edu", icon: "BookOpen", color: "#c084fc", category: "Education" },
+  { id: "settings", name: "Settings", icon: "Settings", color: "#94a3b8", category: "System" },
+  { id: "calculator", name: "Calculator", icon: "Calculator", color: "#f97316", category: "Utilities" },
+  { id: "calendar", name: "Calendar", icon: "Calendar", color: "#ef4444", category: "Productivity" },
+  { id: "clocks", name: "Clocks", icon: "Clock", color: "#06b6d4", category: "Utilities" },
+  { id: "system-monitor", name: "System Monitor", icon: "Activity", color: "#eab308", category: "System" },
+  {
+    id: "devtools-folder",
+    name: "Developer Tools",
+    isFolder: true,
+    icons: ["Code2", "Terminal", "Database", "Layers"],
+    category: "Folder",
+  },
+
+  // Row 3
+  { id: "about", name: "About Vishnu", icon: "User", color: "#60a5fa", category: "Portfolio" },
+  { id: "resume", name: "Resume", icon: "FileText", color: "#fb7185", category: "Portfolio" },
+  { id: "ironparadise", name: "IronParadise", icon: "Dumbbell", color: "#f87171", category: "Projects" },
+  { id: "fizztype", name: "FizzType", icon: "Keyboard", color: "#c084fc", category: "Projects" },
+  { id: "trash", name: "Trash", icon: "Trash2", color: "#64748b", category: "System" },
+  { id: "image-viewer", name: "Image Viewer", icon: "Image", color: "#38bdf8", category: "Graphics" },
+  { id: "software", name: "App Center", icon: "ShoppingBag", color: "#a855f7", category: "System" },
+  { id: "weather", name: "Weather", icon: "CloudSun", color: "#38bdf8", category: "Utilities" },
+  { id: "music", name: "Music", icon: "Music", color: "#ec4899", category: "Media" },
+  { id: "help", name: "Help", icon: "HelpCircle", color: "#94a3b8", category: "System" },
 ];
 
 export const Activities = () => {
   const [query, setQuery] = useState("");
-  const inputRef = useRef(null);
+  const [currentPage, setCurrentPage] = useState(0); // 0, 1, 2
+  const [activeWorkspace, setActiveWorkspace] = useState(1);
 
   const isActivitiesOpen = useWindowStore((s) => s.isActivitiesOpen);
   const toggleActivities = useWindowStore((s) => s.toggleActivities);
-  const windows = useWindowStore((s) => s.windows);
-  const focusWindow = useWindowStore((s) => s.focusWindow);
-  const closeWindow = useWindowStore((s) => s.closeWindow);
   const openWindow = useWindowStore((s) => s.openWindow);
 
   useEffect(() => {
-    if (isActivitiesOpen) {
-      const timer = setTimeout(() => inputRef.current?.focus(), 50);
-      return () => clearTimeout(timer);
-    }
-  }, [isActivitiesOpen]);
-
-  useEffect(() => {
     const handleKeyDown = (e) => {
-      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+      if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
         toggleActivities();
       } else if (e.key === "Escape" && isActivitiesOpen) {
@@ -50,127 +71,141 @@ export const Activities = () => {
 
   if (!isActivitiesOpen) return null;
 
-  const filteredApps = ALL_APPS.filter(
-    (a) =>
-      a.name.toLowerCase().includes(query.toLowerCase()) ||
-      a.desc.toLowerCase().includes(query.toLowerCase()) ||
-      a.id.toLowerCase().includes(query.toLowerCase())
-  );
+  const filteredApps = query
+    ? GRID_APPS_PAGE_1.filter(
+        (a) =>
+          a.name.toLowerCase().includes(query.toLowerCase()) ||
+          a.category.toLowerCase().includes(query.toLowerCase()) ||
+          a.id.toLowerCase().includes(query.toLowerCase())
+      )
+    : GRID_APPS_PAGE_1;
+
+  const handleLaunch = (app) => {
+    toggleActivities();
+    if (app.id === "ironparadise" || app.id === "fizztype") {
+      openWindow("projects", { itemId: app.id });
+    } else {
+      openWindow(app.id);
+    }
+  };
 
   return (
     <div
-      className="fixed inset-0 z-[1300] bg-black/75 backdrop-blur-2xl flex flex-col items-center pt-16 px-6 pb-24 overflow-y-auto select-none animate-in fade-in duration-200"
+      className="fixed inset-0 z-[1300] bg-black/60 backdrop-blur-2xl flex flex-col items-center pt-8 px-8 pb-24 overflow-hidden select-none animate-in fade-in duration-200"
       onClick={toggleActivities}
       role="dialog"
       aria-label="Activities Overview"
     >
-      {/* Search Bar */}
-      <div
-        className="w-full max-w-xl mb-8 relative"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <div className="relative flex items-center">
-          <Search className="absolute left-4 w-5 h-5 text-amber-400 pointer-events-none" />
-          <input
-            ref={inputRef}
-            type="text"
-            value={query}
-            onChange={(e) => setQuery(e.target.value)}
-            placeholder="Type to search apps, skills, experience, or projects..."
-            className="w-full h-12 pl-12 pr-10 rounded-2xl bg-white/10 border border-white/20 text-white placeholder-white/50 text-sm backdrop-blur-xl outline-none focus:ring-2 focus:ring-amber-400 focus:border-amber-400 shadow-2xl transition-all"
-          />
-          {query && (
-            <button
-              onClick={() => setQuery("")}
-              className="absolute right-3 p-1 rounded-full hover:bg-white/10 text-white/70"
-            >
-              <X className="w-4 h-4" />
-            </button>
-          )}
-        </div>
+      {/* ── Top Search Pill: Centered, 370×36px (R2) ── */}
+      <div className="mb-6" onClick={(e) => e.stopPropagation()}>
+        <SearchPill
+          value={query}
+          onChange={setQuery}
+          onClear={() => setQuery("")}
+          placeholder="Type to search"
+          autoFocus={true}
+        />
       </div>
 
-      {/* ── Section 1: Active Window Tiles (Overview) ── */}
-      {windows.length > 0 && !query && (
+      {/* ── Workspace Strip: 3 Thumbnails (R2) ── */}
+      {!query && (
         <div
-          className="w-full max-w-5xl mb-10"
+          className="flex items-center justify-center gap-6 mb-8"
           onClick={(e) => e.stopPropagation()}
         >
-          <div className="text-xs uppercase tracking-wider font-semibold text-gray-400 mb-3 px-1 flex items-center gap-2">
-            <Activity className="w-3.5 h-3.5 text-amber-400" />
-            <span>Open Windows ({windows.length})</span>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {windows.map((win) => (
-              <div
-                key={win.id}
-                onClick={() => {
-                  focusWindow(win.id);
-                  toggleActivities();
-                }}
-                className="group relative rounded-xl border border-white/20 bg-black/40 hover:bg-black/60 backdrop-blur-xl p-3 cursor-pointer shadow-lg hover:shadow-2xl hover:border-amber-400/60 transition-all hover:scale-[1.02]"
-              >
-                <div className="flex items-center justify-between mb-2">
-                  <div className="flex items-center gap-2 text-xs font-semibold text-white truncate max-w-[80%]">
-                    <AppIcon name={win.icon} className="w-4 h-4 text-amber-400" />
-                    <span className="truncate">{win.title}</span>
-                  </div>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      closeWindow(win.id);
-                    }}
-                    className="p-1 rounded-lg hover:bg-red-500/30 text-white/60 hover:text-red-300 transition-colors"
-                    title="Close Window"
-                  >
-                    <X className="w-3.5 h-3.5" />
-                  </button>
-                </div>
-
-                <div className="h-24 rounded-lg bg-white/5 border border-white/10 flex flex-col items-center justify-center p-2 text-center text-xs text-gray-400">
-                  <span className="font-mono text-[11px] opacity-75">Click to focus</span>
-                </div>
+          {[1, 2, 3].map((ws) => (
+            <div
+              key={ws}
+              onClick={() => setActiveWorkspace(ws)}
+              className={`relative cursor-pointer rounded-xl overflow-hidden shadow-2xl transition-all duration-150 border-2 ${
+                activeWorkspace === ws
+                  ? "border-white ring-2 ring-white/30 scale-105"
+                  : "border-white/20 opacity-75 hover:opacity-100"
+              }`}
+              style={{
+                width: activeWorkspace === ws ? "270px" : "240px",
+                height: activeWorkspace === ws ? "152px" : "135px",
+                backgroundColor: "#252a1a",
+              }}
+            >
+              {/* Thumbnail miniature preview */}
+              <div className="absolute inset-0 bg-gradient-to-b from-[#2c3a1e] to-[#152a22] flex items-center justify-center">
+                <span className="text-xs text-white/50 font-medium">Workspace {ws}</span>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       )}
 
-      {/* ── Section 2: Applications Grid ── */}
+      {/* ── App Grid: 10 Columns × 3 Rows per page (R2) ── */}
       <div
-        className="w-full max-w-4xl"
+        className="w-full max-w-[1500px] flex-1 flex items-center justify-center relative"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="text-xs uppercase tracking-wider font-semibold text-gray-400 mb-4 px-1">
-          {query ? `Search Results (${filteredApps.length})` : "Applications"}
-        </div>
-
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-5 sm:grid-cols-7 md:grid-cols-10 gap-x-4 gap-y-6 justify-items-center w-full">
           {filteredApps.map((app) => (
-            <button
+            <div
               key={app.id}
-              onClick={() => {
-                openWindow(app.id);
-                toggleActivities();
-              }}
-              className="flex items-center gap-3.5 p-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/15 active:scale-95 text-left transition-all backdrop-blur-md group"
+              onClick={() => handleLaunch(app)}
+              className="flex flex-col items-center justify-start w-28 group cursor-pointer"
             >
-              <div className="w-11 h-11 rounded-xl flex items-center justify-center bg-black/40 border border-white/15 shadow-md group-hover:scale-105 transition-transform">
-                <AppIcon name={app.icon} className="w-5 h-5" style={{ color: app.color }} />
+              {/* Icon Container (64×64 px) */}
+              <div className="w-16 h-16 rounded-2xl flex items-center justify-center transition-all duration-150 group-hover:scale-105 group-hover:bg-white/10 group-active:scale-95">
+                {app.isFolder ? (
+                  /* 2×2 Folder tile preview (R2) */
+                  <div className="w-14 h-14 rounded-2xl bg-[#36363a] border border-white/15 p-2 grid grid-cols-2 gap-1 items-center justify-items-center shadow-lg">
+                    {app.icons.map((ic, idx) => (
+                      <AppIcon key={idx} name={ic} className="w-4 h-4 text-white/80" />
+                    ))}
+                  </div>
+                ) : (
+                  <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center shadow-md p-2">
+                    <AppIcon name={app.icon} className="w-9 h-9" style={{ color: app.color }} />
+                  </div>
+                )}
               </div>
-              <div className="overflow-hidden">
-                <div className="text-sm font-semibold text-white truncate group-hover:text-amber-300 transition-colors">
-                  {app.name}
-                </div>
-                <div className="text-[11px] text-gray-400 truncate">
-                  {app.desc}
-                </div>
-              </div>
-            </button>
+
+              {/* Label (Truncated / Ellipsized like R2) */}
+              <span
+                className="mt-1 text-center text-xs text-white/90 group-hover:text-white font-medium truncate w-full px-1"
+                title={app.name}
+              >
+                {app.name}
+              </span>
+            </div>
           ))}
         </div>
+
+        {/* Right Arrow for Next Page (R2) */}
+        {!query && (
+          <button
+            onClick={() => setCurrentPage((p) => (p + 1) % 3)}
+            className="absolute right-0 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center shadow-lg transition-colors"
+            title="Next Page"
+            aria-label="Next Page"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+        )}
       </div>
+
+      {/* ── Page Indicator Dots (3 dots, R2) ── */}
+      {!query && (
+        <div className="flex items-center gap-2 mt-4" onClick={(e) => e.stopPropagation()}>
+          {[0, 1, 2].map((page) => (
+            <button
+              key={page}
+              onClick={() => setCurrentPage(page)}
+              className={`rounded-full transition-all ${
+                currentPage === page
+                  ? "w-2.5 h-2.5 bg-white scale-110"
+                  : "w-2 h-2 bg-white/30 hover:bg-white/60"
+              }`}
+              aria-label={`Go to page ${page + 1}`}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 };
