@@ -1,0 +1,356 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════
+   VISHNU'S DESKTOP — Design System Tokens
+   Linux Desktop OS Portfolio
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Fonts ─────────────────────────────────────────────── */
+@font-face {
+  font-family: "JetBrains Mono";
+  src: local("JetBrains Mono"), local("JetBrainsMono");
+  font-display: swap;
+}
+
+/* ── Dark Theme (default) ──────────────────────────────── */
+:root {
+  color-scheme: dark;
+
+  /* Panel & Chrome */
+  --panel-bg: rgba(28, 28, 28, 0.85);
+  --panel-text: #ffffff;
+  --panel-text-muted: rgba(255, 255, 255, 0.6);
+  --panel-border: rgba(255, 255, 255, 0.08);
+  --panel-height: 28px;
+  --panel-hover: rgba(255, 255, 255, 0.1);
+
+  /* Dock */
+  --dock-bg: rgba(28, 28, 28, 0.75);
+  --dock-border: rgba(255, 255, 255, 0.1);
+  --dock-height: 58px;
+  --dock-icon-size: 40px;
+  --dock-max-scale: 1.35;
+  --dock-radius: 22px;
+  --dock-gap: 4px;
+  --dock-padding: 4px 8px;
+
+  /* Windows */
+  --window-bg: #2d2d2d;
+  --window-header-bg: #383838;
+  --window-header-text: #ffffff;
+  --window-header-height: 38px;
+  --window-border: rgba(0, 0, 0, 0.3);
+  --window-radius: 12px;
+  --window-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.2);
+  --window-shadow-inactive: 0 4px 16px rgba(0, 0, 0, 0.25);
+  --window-min-width: 380px;
+  --window-min-height: 280px;
+
+  /* Content surfaces */
+  --surface-bg: #1e1e1e;
+  --surface-alt: #252525;
+  --surface-border: rgba(255, 255, 255, 0.06);
+  --text-primary: #e4e4e4;
+  --text-secondary: #a0a0a0;
+  --text-muted: #666666;
+  --text-link: var(--accent);
+
+  /* Accent: Electric Teal (default) */
+  --accent: #26c6da;
+  --accent-soft: rgba(38, 198, 218, 0.15);
+  --accent-hover: #4dd0e1;
+  --accent-text: #000000;
+
+  /* Status */
+  --success: #66bb6a;
+  --warning: #ffa726;
+  --error: #ef5350;
+  --info: #42a5f5;
+
+  /* Window control dots */
+  --dot-close: #ef5350;
+  --dot-minimize: #ffa726;
+  --dot-maximize: #66bb6a;
+  --dot-hover-close: #c62828;
+  --dot-hover-minimize: #e65100;
+  --dot-hover-maximize: #2e7d32;
+
+  /* Desktop */
+  --desktop-icon-size: 64px;
+  --desktop-icon-gap: 16px;
+  --desktop-icon-label: 80px;
+  --desktop-icon-text: #ffffff;
+  --desktop-icon-text-shadow: 0 1px 4px rgba(0, 0, 0, 0.8);
+  --desktop-icon-select: rgba(255, 255, 255, 0.12);
+
+  /* Context menu */
+  --menu-bg: #2d2d2d;
+  --menu-border: rgba(255, 255, 255, 0.1);
+  --menu-hover: rgba(255, 255, 255, 0.08);
+  --menu-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --menu-radius: 8px;
+  --menu-separator: rgba(255, 255, 255, 0.08);
+
+  /* Typography */
+  --font-system: "Inter", "Cantarell", "Ubuntu", -apple-system, BlinkMacSystemFont,
+    sans-serif;
+  --font-mono: "JetBrains Mono", "Fira Code", "Cascadia Code", "Consolas",
+    monospace;
+  --font-heading: "Ubuntu", "Inter", -apple-system, sans-serif;
+
+  /* Transitions */
+  --t-fast: 150ms ease;
+  --t-normal: 200ms ease;
+  --t-slow: 300ms ease;
+  --t-spring: 300ms cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Z-index layers */
+  --z-desktop: 0;
+  --z-desktop-icon: 10;
+  --z-window-base: 100;
+  --z-dock: 1000;
+  --z-panel: 1100;
+  --z-context-menu: 1200;
+  --z-app-grid: 1300;
+  --z-alt-tab: 1400;
+  --z-notification: 1500;
+  --z-boot: 9999;
+
+  /* Notification */
+  --toast-bg: #383838;
+  --toast-border: rgba(255, 255, 255, 0.1);
+  --toast-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* ── Light Theme ───────────────────────────────────────── */
+[data-theme="light"] {
+  color-scheme: light;
+
+  --panel-bg: rgba(240, 240, 240, 0.9);
+  --panel-text: #1a1a1a;
+  --panel-text-muted: rgba(0, 0, 0, 0.5);
+  --panel-border: rgba(0, 0, 0, 0.08);
+  --panel-hover: rgba(0, 0, 0, 0.06);
+
+  --dock-bg: rgba(240, 240, 240, 0.8);
+  --dock-border: rgba(0, 0, 0, 0.08);
+
+  --window-bg: #ffffff;
+  --window-header-bg: #f0f0f0;
+  --window-header-text: #1a1a1a;
+  --window-border: rgba(0, 0, 0, 0.1);
+  --window-shadow: 0 8px 32px rgba(0, 0, 0, 0.15), 0 2px 8px rgba(0, 0, 0, 0.08);
+  --window-shadow-inactive: 0 4px 16px rgba(0, 0, 0, 0.08);
+
+  --surface-bg: #fafafa;
+  --surface-alt: #f0f0f0;
+  --surface-border: rgba(0, 0, 0, 0.06);
+  --text-primary: #1a1a1a;
+  --text-secondary: #555555;
+  --text-muted: #999999;
+
+  --desktop-icon-text: #1a1a1a;
+  --desktop-icon-text-shadow: 0 1px 3px rgba(255, 255, 255, 0.5);
+  --desktop-icon-select: rgba(0, 0, 0, 0.08);
+
+  --menu-bg: #ffffff;
+  --menu-border: rgba(0, 0, 0, 0.1);
+  --menu-hover: rgba(0, 0, 0, 0.05);
+  --menu-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  --menu-separator: rgba(0, 0, 0, 0.08);
+
+  --toast-bg: #ffffff;
+  --toast-border: rgba(0, 0, 0, 0.1);
+  --toast-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* ── Accent Palette Overrides ──────────────────────────── */
+[data-accent="emerald"] {
+  --accent: #5fae6b;
+  --accent-soft: rgba(95, 174, 107, 0.15);
+  --accent-hover: #72bb7d;
+}
+[data-accent="purple"] {
+  --accent: #ab47bc;
+  --accent-soft: rgba(171, 71, 188, 0.15);
+  --accent-hover: #ba68c8;
+}
+[data-accent="orange"] {
+  --accent: #ff7043;
+  --accent-soft: rgba(255, 112, 67, 0.15);
+  --accent-hover: #ff8a65;
+}
+[data-accent="blue"] {
+  --accent: #42a5f5;
+  --accent-soft: rgba(66, 165, 245, 0.15);
+  --accent-hover: #64b5f6;
+}
+[data-accent="rose"] {
+  --accent: #ec407a;
+  --accent-soft: rgba(236, 64, 122, 0.15);
+  --accent-hover: #f06292;
+}
+
+/* ── Global Resets ─────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-system);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background: #000;
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.5;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+#root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* ── Selection ─────────────────────────────────────────── */
+::selection {
+  background: var(--accent-soft);
+  color: var(--text-primary);
+}
+
+/* ── Scrollbar (GNOME style) ──────────────────────────── */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+}
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* ── Focus visible ─────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ── Reduced motion ────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ── Utility: prevent text selection during drag ───────── */
+.is-dragging {
+  cursor: grabbing !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+.is-dragging * {
+  pointer-events: none !important;
+}
+
+/* ── Window open/close animations ──────────────────────── */
+@keyframes window-open {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes window-close {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-down {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes dock-bounce {
+  0%, 100% { transform: translateY(0) scale(var(--scale, 1)); }
+  50% { transform: translateY(-6px) scale(var(--scale, 1)); }
+}
+
+/* ── Terminal cursor blink ─────────────────────────────── */
+@keyframes cursor-blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ── Boot screen text scroll ───────────────────────────── */
+@keyframes boot-scroll {
+  from { transform: translateY(0); }
+  to { transform: translateY(-100%); }
+}

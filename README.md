@@ -1,114 +1,113 @@
-### Developer Profile
+# VishnuOS Portfolio (v2.0)
 
-```json
-{
-  "name": "Vishnu Thangaraj",
-  "title": "Software Development Engineer",
-  "engineering_pillars": [
-    "Modern Full-Stack Platforms (MERN & React/MUI)",
-    "Native Android Ecosystems"
-  ],
-  "persistence_cache": ["MongoDB", "PostgreSQL", "MySQL"]
-}
-```
+> A modern Linux Desktop OS portfolio rendered in macOS Tahoe "Liquid Glass" material with fluid window management, responsive phone mode, and accessible linear view.
 
-- **Modern Full-Stack Applications:** Engineering responsive web frontends in **React & MUI** backed by asynchronous, low-latency APIs built using the **MERN Stack** (MongoDB, Express.js, React, Node.js).
-- **Containerization & Deployment:** Building containerized multi-stage deployments and managing environments with **Docker**.
+**Owner:** Vishnu Thangaraj (Full Stack Developer | DevOps | AI/ML)  
+**Live URL:** [https://vishnuthangaraj.github.io](https://vishnuthangaraj.github.io)  
+**Architecture:** Vite + React 19 + Tailwind CSS + Zustand-compatible Store + Vitest
 
 ---
 
-### Technical Arsenal
+## 🖥️ Architecture & Key Features
 
-<div align="center">
-  <p><strong>Curated Technologies, Stacks, Runtimes & Glass Tooling</strong></p>
-  <br>
+VishnuOS is designed around a single source of truth (`src/data/profile.js`) rendered in three modes:
 
-  <!-- Frontend & UI Layer -->
-  <p><code>CLIENT & INTERFACE LAYER</code></p>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=react%2Credux%2Ctailwind%2Cvite%2Chtml%2Ccss%2Cjs%2Cts%2Cbootstrap&theme=dark&perline=9">
-    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=react%2Credux%2Ctailwind%2Cvite%2Chtml%2Ccss%2Cjs%2Cts%2Cbootstrap&theme=light&perline=9">
-    <img src="https://skillicons.dev/icons?i=react,redux,tailwind,vite,html,css,js,ts,bootstrap&perline=9" alt="Frontend Arsenal" />
-  </picture>
-  <br><br>
+1. **Desktop OS Mode:**
+   - **Translucent Top Bar:** Workspace dots, Places navigation menu, live dynamic clock with date overview popover, quick-settings pill (Wi-Fi, volume, battery), and direct settings gear.
+   - **Column Desktop Icons:** Top-left column with Home, IronParadise, SHNOOR International, FizzType, IICT, Terminal, Stack, and Resume (with shortcut badges and drag snapping).
+   - **Floating Dock:** Bottom-center pill with spring proximity magnification, running app indicator dots, launch bounce animation, tooltips, Trash easter egg, and Activities launch button.
+   - **Window Manager:** Fluid window dragging with pointer capture, 8-way resize handles, traffic light window controls (close, minimize, maximize), edge snapping (left half, right half, full screen) with ghost preview overlay, and inactive window material swapping.
+   - **Activities & Launchpad:** Instant `Ctrl+K` overview displaying open window tiles and searchable application grid.
 
-  <!-- Backend, Mobile & Systems -->
-  <p><code>BACKEND, MOBILE & SYSTEMS ENGINE</code></p>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=nodejs%2Cexpress%2Cfastapi%2Cpy%2Candroidstudio&theme=dark&perline=5">
-    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=nodejs%2Cexpress%2Cfastapi%2Cpy%2Candroidstudio&theme=light&perline=5">
-    <img src="https://skillicons.dev/icons?i=nodejs,express,fastapi,py,androidstudio&perline=5" alt="Backend & Mobile Arsenal" />
-  </picture>
-  <br><br>
+2. **Phone Mode (`< 768px` or touch):**
+   - iOS/Android style mobile home screen with glass icon grid, status bar, and pinned bottom dock.
+   - Full-screen app sheets with native back button and header.
 
-  <!-- Databases, DevOps & Cloud Persistence -->
-  <p><code>PERSISTENCE & INFRASTRUCTURE</code></p>
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://skillicons.dev/icons?i=mongodb%2Cmysql%2Cpostgres%2Cdocker%2Cgit%2Cgithub%2Cpostman%2Clinux&theme=dark&perline=8">
-    <source media="(prefers-color-scheme: light)" srcset="https://skillicons.dev/icons?i=mongodb%2Cmysql%2Cpostgres%2Cdocker%2Cgit%2Cgithub%2Cpostman%2Clinux&theme=light&perline=8">
-    <img src="https://skillicons.dev/icons?i=mongodb,mysql,postgres,docker,git,github,postman,linux&perline=8" alt="Databases & DevOps Arsenal" />
-  </picture>
-  <br><br>
-</div>
+3. **Classic View (`#/classic`):**
+   - Clean, semantic, lightning-fast linear portfolio for recruiters in a hurry and screen readers.
+   - 100% accessible with skip links, structured semantic sections, and print-friendly styles.
 
-<details>
-<summary><b>View Comprehensive Matrix & Technology Specifications (Click to expand)</b></summary>
-<br>
-
-| Domain                  | Technologies & Stacks                                                                        | Capabilities & Engineering Focus                                                                                                |
-| :---------------------- | :------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------ |
-| **Frontend & Web**      | `React` `MUI` `Redux Toolkit` `Vite` `Tailwind CSS` `JavaScript` `TypeScript` `HTML5` `CSS3` | Single Page Apps (SPA), State Management, Responsive Design, Component Lifecycle, Asynchronous UI, Liquid Glass Aesthetics      |
-| **Mobile & Android**    | `Android Studio` `Material Design` `Room DB` `Firebase`                                      | MVVM Architecture, Jetpack Components, Local SQLite/Room Caching, Retrofit REST Clients, Push Notifications, Background Workers |
-| **Backend & APIs**      | `Node.js` `Express.js` `FastAPI` `Python`                                                    | RESTful API Architecture, JWT/OAuth2 Authentication, Asynchronous Processing, Middleware Design, Microservices Ecosystem        |
-| **Databases & Storage** | `MongoDB` `MySQL` `PostgreSQL`                                                               | NoSQL Document Modeling, Relational Normalization & Indexing, Query Optimization, ACID Transactions                             |
-| **DevOps & Tooling**    | `Docker` `Git` `GitHub` `Postman` `Linux` `Gradle`                                           | Containerization, Version Control & GitFlow, Automated API Testing, Unix CLI Automation, Dependency Management                  |
-
-</details>
+4. **Liquid Glass Material System:**
+   - **T0 (Solid):** Opaque tinted surfaces, strong borders, zero blur (WCAG AAA contrast or reduce-transparency).
+   - **T1 (CSS Glass - Default):** Backdrop blur, saturation, specular rim highlight, and adaptive drop shadows.
+   - **T2 (Lensing):** SVG displacement edge refraction filter for Chromium desktop.
 
 ---
 
-### System Architecture Workflow
+## 🚀 Quickstart & Development
 
-<div align="center">
-  <p><strong>End-to-End Enterprise & Liquid-Clean Data Flow</strong></p>
-</div>
+### Prerequisites
+- Node.js `v20+` or `v24+`
+- pnpm `v9+` or `v12+`
 
-```mermaid
-flowchart LR
-    %% Presentation Tier
-    subgraph Presentation["Presentation & Client Tier"]
-        direction TB
-        Web["React.js SPA<br/>(Vite • MUI • Redux)"]
-        Mobile["Native Android App<br/>(Android Studio • MVVM)"]
-    end
+### Installation
+```bash
+# Clone the repository
+git clone https://github.com/VishnuThangaraj/VishnuThangaraj.git
+cd VishnuThangaraj
 
-    %% Security & Gateway
-    subgraph Gateway["Security & API Gateway"]
-        direction TB
-        Auth["Reverse Proxy & JWT Auth<br/>(Rate Limiting • CORS • SSL)"]
-    end
+# Install dependencies
+pnpm install
 
-    %% Microservices Tier
-    subgraph Services["Backend Microservices"]
-        direction TB
-        FastAPIService["FastAPI (Python)<br/>High-Speed Asynchronous API"]
-        NodeService["Express.js / Node.js<br/>Real-Time Business Logic"]
-    end
-
-    %% Persistence Tier
-    subgraph Persistence["Persistence & Storage Tier"]
-        direction TB
-        MongoDB[("MongoDB<br/>Document Store")]
-        RelationalDB[("PostgreSQL / MySQL<br/>ACID Relational Data")]
-    end
-
-    %% Flow Connections
-    Presentation ==> Gateway
-    Gateway ==> Services
-
-    FastAPIService --> MongoDB
-    NodeService --> MongoDB
-    NodeService --> RelationalDB
+# Start development server
+pnpm run dev
 ```
 
-</div>
+### Scripts
+| Command | Description |
+|---|---|
+| `pnpm run dev` | Starts Vite local development server on port 5155 |
+| `pnpm run build` | Produces production build in `dist/` with code-split app chunks |
+| `pnpm run lint` | Runs ESLint across all JavaScript/JSX files |
+| `pnpm run test` | Runs the full Vitest suite (tokens, store, contrast, parity, a11y) |
+| `pnpm run preview` | Previews the production build locally |
+
+---
+
+## 🛠️ How to Edit Content
+
+All portfolio content is centralized in **one single file**:
+`src/data/profile.js`
+
+- **Update Experience:** Add or modify items in `profile.experience`.
+- **Update Projects:** Add or modify items in `profile.projects`.
+- **Update Skills:** Modify items in `profile.skills`.
+- **Update Education & Honors:** Modify `profile.education` or `profile.honors`.
+
+Changes made to `src/data/profile.js` automatically propagate across:
+- All Desktop OS windows (About, Experience, Projects, Code, Terminal, Stack, Notes, Contact, Resume)
+- Phone mode home screen and sheets
+- Classic linear view
+- Terminal command responses
+
+---
+
+## 🧩 How to Add a New Application
+
+1. Create your app component in `src/apps/MyNewApp.jsx`.
+2. Register the app in `src/apps/registry.jsx`:
+   ```javascript
+   const MyNewApp = lazy(() => import("./MyNewApp").then(m => ({ default: m.MyNewApp })));
+   ```
+3. Add the app metadata to `src/store/windowStore.js` and `DOCK_APPS` in `src/shell/Dock.jsx`.
+
+---
+
+## 🐳 Docker Deployment
+
+A lightweight multi-stage Docker build is included:
+
+```bash
+# Build Docker image
+docker build -t vishnu-os .
+
+# Run container
+docker run -p 8080:80 vishnu-os
+```
+Visit `http://localhost:8080` in your browser.
+
+---
+
+## 📄 License & Attribution
+Designed and built by **Vishnu Thangaraj** • 2026.
+Original wallpaper and icon designs. Zero external tracking.
