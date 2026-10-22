@@ -90,7 +90,6 @@ export const BatteryChargingIcon = () => (
       style={{ width: '22px', height: '12px' }}
       aria-hidden="true"
     >
-      {/* Outer battery body */}
       <rect
         x="1"
         y="1"
@@ -100,14 +99,11 @@ export const BatteryChargingIcon = () => (
         stroke="currentColor"
         strokeWidth="1.6"
       />
-      {/* Battery positive terminal nub */}
       <path
         d="M29 5.5C29.6 5.5 30 6 30 6.6V9.4C30 10 29.6 10.5 29 10.5V5.5Z"
         fill="currentColor"
       />
-      {/* Battery fill level 100% */}
       <rect x="3" y="3" width="22" height="10" rx="2" fill="currentColor" opacity="0.9" />
-      {/* Lightning bolt inside battery */}
       <path
         d="M15.5 3.8L12.2 8.5H15.2L13.8 12.2L18.2 7.5H15L16.2 3.8H15.5Z"
         fill="#ffffff"
@@ -126,7 +122,6 @@ export const ControlCenterIcon = () => (
     style={{ width: '15px', height: '15px' }}
     aria-hidden="true"
   >
-    {/* Upper toggle container & thumb */}
     <rect
       x="2"
       y="4"
@@ -137,8 +132,6 @@ export const ControlCenterIcon = () => (
       strokeWidth="1.6"
     />
     <circle cx="7" cy="7.25" r="2.2" fill="currentColor" />
-
-    {/* Lower toggle container & thumb */}
     <rect
       x="2"
       y="13.5"
@@ -149,5 +142,120 @@ export const ControlCenterIcon = () => (
       strokeWidth="1.6"
     />
     <circle cx="17" cy="16.75" r="2.2" fill="currentColor" />
+  </svg>
+);
+
+/* ==========================================================================
+   Dropdown Action Icons (matching apple_logo-clicked.png, file-clicked.png, view-clicked.png)
+   ========================================================================== */
+
+export const MenuSleepIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ width: '15px', height: '15px', marginRight: '8px' }}
+    aria-hidden="true"
+  >
+    <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z" />
+  </svg>
+);
+
+export const MenuRestartIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ width: '15px', height: '15px', marginRight: '8px' }}
+    aria-hidden="true"
+  >
+    <path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.85.83 6.72 2.24" />
+    <path d="M21 3v5h-5" />
+  </svg>
+);
+
+export const MenuPowerIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ width: '15px', height: '15px', marginRight: '8px' }}
+    aria-hidden="true"
+  >
+    <path d="M18.36 6.64a9 9 0 1 1-12.73 0" />
+    <line x1="12" y1="2" x2="12" y2="12" />
+  </svg>
+);
+
+export const MenuLockIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ width: '15px', height: '15px', marginRight: '8px' }}
+    aria-hidden="true"
+  >
+    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+  </svg>
+);
+
+export const MenuChevronRight = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ width: '12px', height: '12px', marginLeft: 'auto' }}
+    aria-hidden="true"
+  >
+    <polyline points="9 18 15 12 9 6" />
+  </svg>
+);
+
+export const MenuFilePlusIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="1.8"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ width: '15px', height: '15px', marginRight: '8px' }}
+    aria-hidden="true"
+  >
+    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+    <polyline points="14 2 14 8 20 8" />
+    <line x1="12" y1="18" x2="12" y2="12" />
+    <line x1="9" y1="15" x2="15" y2="15" />
+  </svg>
+);
+
+export const MenuCheckmarkIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2.5"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ width: '13px', height: '13px', marginRight: '8px' }}
+    aria-hidden="true"
+  >
+    <polyline points="20 6 9 17 4 12" />
   </svg>
 );

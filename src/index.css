@@ -6,14 +6,14 @@
   /* Typography */
   --font-macos: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
   
-  /* Top Bar Tokens (matching reference/topbar.png) */
+  /* Top Bar Tokens (matching reference/topbar.png & topbar-item-hover.png) */
   --topbar-height: 28px;
   --topbar-bg: rgba(255, 255, 255, 0.55);
   --topbar-blur: blur(25px) saturate(180%);
   --topbar-border: rgba(0, 0, 0, 0.12);
   --topbar-text: #1d1d1f;
-  --topbar-item-hover: rgba(255, 255, 255, 0.35);
-  --topbar-item-active: rgba(0, 0, 0, 0.1);
+  --topbar-item-hover: rgba(0, 0, 0, 0.08);
+  --topbar-item-active: rgba(0, 0, 0, 0.12);
 
   /* Dock Tokens (matching reference/dock.png & dock-hover.png) */
   --dock-bg: rgba(255, 255, 255, 0.28);
@@ -29,11 +29,11 @@
   --tooltip-border: rgba(0, 0, 0, 0.1);
   --tooltip-shadow: 0 4px 16px rgba(0, 0, 0, 0.18), 0 1px 2px rgba(0, 0, 0, 0.08);
 
-  /* Dropdown Menu Tokens */
-  --menu-bg: rgba(246, 246, 246, 0.85);
-  --menu-blur: blur(25px) saturate(180%);
+  /* Dropdown Menu Tokens (matching reference screenshots) */
+  --menu-bg: rgba(255, 255, 255, 0.90);
+  --menu-blur: blur(28px) saturate(190%);
   --menu-border: rgba(0, 0, 0, 0.14);
-  --menu-shadow: 0 10px 28px rgba(0, 0, 0, 0.22), 0 0 0 0.5px rgba(255, 255, 255, 0.6) inset;
+  --menu-shadow: 0 12px 32px rgba(0, 0, 0, 0.2), 0 0 0 0.5px rgba(255, 255, 255, 0.8) inset;
   --menu-item-hover-bg: #007aff;
   --menu-item-hover-text: #ffffff;
 }
@@ -95,7 +95,7 @@ html, body, #root {
   letter-spacing: -0.15px;
 }
 
-/* Top Bar Items */
+/* Top Bar Sections */
 .macos-topbar-left {
   display: flex;
   align-items: center;
@@ -108,40 +108,82 @@ html, body, #root {
   gap: 12px;
 }
 
-.macos-menu-item {
+/* Top Bar Buttons with Selective Hover System */
+.macos-topbar-btn {
   padding: 2px 8px;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: default;
-  transition: background-color 0.12s ease;
+  background: transparent;
+  border: 1px solid transparent;
+  color: inherit;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 400;
+  height: 22px;
   display: flex;
   align-items: center;
-  font-size: 13px;
-  height: 22px;
+  justify-content: center;
+  transition: background-color 0.1s ease, border-color 0.1s ease;
+  outline: none;
 }
 
-.macos-menu-item:hover, .macos-menu-item.active {
+/* Hover state matching reference/topbar-item-hover.png */
+.macos-topbar-btn.hoverable:hover {
   background-color: var(--topbar-item-hover);
 }
 
-.macos-menu-item.app-title {
+/* Active clicked state */
+.macos-topbar-btn.active {
+  background-color: var(--topbar-item-active);
+}
+
+/* Active bordered state (matching reference/apple_logo-clicked.png and window-clicked.png) */
+.macos-topbar-btn.active-bordered {
+  background-color: var(--topbar-item-active);
+  border: 1.5px solid #1c1c1e;
+}
+
+/* Strictly non-hoverable items (Finder, Battery, Date Time) */
+.macos-topbar-non-hoverable {
+  background: transparent !important;
+  border: 1px solid transparent !important;
+  cursor: default !important;
+  pointer-events: auto;
+}
+
+.macos-topbar-non-hoverable:hover {
+  background: transparent !important;
+  border-color: transparent !important;
+}
+
+.macos-topbar-title {
   font-weight: 600;
-  margin-left: 2px;
+  padding: 2px 8px;
+  font-size: 13px;
 }
 
 .macos-status-icon-btn {
   display: flex;
   align-items: center;
   gap: 4px;
-  padding: 2px 4px;
-  border-radius: 4px;
+  padding: 2px 5px;
+  border-radius: 5px;
   cursor: default;
-  transition: background-color 0.12s ease;
+  background: transparent;
+  border: 1px solid transparent;
+  color: inherit;
   font-size: 12px;
   height: 22px;
+  transition: background-color 0.1s ease;
+  outline: none;
 }
 
-.macos-status-icon-btn:hover, .macos-status-icon-btn.active {
+.macos-status-icon-btn.hoverable:hover {
   background-color: var(--topbar-item-hover);
+}
+
+.macos-status-icon-btn.active {
+  background-color: var(--topbar-item-active);
 }
 
 /* Dock Container */
@@ -203,23 +245,23 @@ html, body, #root {
   }
 }
 
-/* Dropdown Menu Container */
+/* Dropdown Menu Container matching macOS Big Sur / Sonoma */
 .macos-dropdown-menu {
   position: absolute;
-  top: calc(var(--topbar-height) + 2px);
+  top: calc(var(--topbar-height) + 3px);
   background: var(--menu-bg);
   backdrop-filter: var(--menu-blur);
   -webkit-backdrop-filter: var(--menu-blur);
   border: 0.5px solid var(--menu-border);
   box-shadow: var(--menu-shadow);
-  border-radius: 6px;
+  border-radius: 8px;
   padding: 4px;
-  min-width: 200px;
+  min-width: 215px;
   z-index: 70;
   display: flex;
   flex-direction: column;
   gap: 1px;
-  animation: menuFadeIn 0.12s ease-out;
+  animation: menuFadeIn 0.1s ease-out;
 }
 
 @keyframes menuFadeIn {
@@ -234,24 +276,31 @@ html, body, #root {
 }
 
 .macos-dropdown-item {
-  padding: 4px 10px;
-  border-radius: 4px;
+  padding: 3.5px 8px;
+  border-radius: 5px;
   font-size: 13px;
   color: #1d1d1f;
   display: flex;
   justify-content: space-between;
   align-items: center;
   cursor: default;
-  transition: background-color 0.08s ease, color 0.08s ease;
+  transition: background-color 0.06s ease, color 0.06s ease;
+  min-height: 22px;
 }
 
-.macos-dropdown-item:hover {
+.macos-dropdown-item:hover, .macos-dropdown-item.selected {
   background-color: var(--menu-item-hover-bg);
   color: var(--menu-item-hover-text);
+}
+
+.macos-dropdown-item:hover .item-secondary,
+.macos-dropdown-item.selected .item-secondary {
+  color: #ffffff !important;
+  opacity: 0.9 !important;
 }
 
 .macos-dropdown-separator {
   height: 0.5px;
   background-color: rgba(0, 0, 0, 0.12);
-  margin: 3px 0;
+  margin: 3.5px 6px;
 }

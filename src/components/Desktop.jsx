@@ -5,7 +5,7 @@ import React from 'react';
  * Provides full-screen macOS desktop canvas.
  * Per specification: Desktop surface is kept clean and empty for future additions.
  */
-const Desktop = ({ children, wallpaperUrl = '/wallpaper.jpg' }) => {
+const Desktop = ({ children, wallpaperUrl = '/wallpaper.webp' }) => {
   return (
     <main
       className="macos-desktop"
