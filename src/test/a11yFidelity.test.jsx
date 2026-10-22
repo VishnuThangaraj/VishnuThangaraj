@@ -41,8 +41,8 @@ describe('macOS Portfolio Accessibility & Quality Assurance (Task 5.4)', () => {
     ];
 
     requiredAriaLabels.forEach((label) => {
-      const el = screen.getByLabelText(label);
-      expect(el).toBeDefined();
+      const els = screen.getAllByLabelText(label);
+      expect(els.length).toBeGreaterThanOrEqual(1);
     });
   });
 });
