@@ -22,6 +22,17 @@ const DesktopIconsGrid = ({ icons = DESKTOP_ICONS, onOpenIcon }) => {
   const handleSelect = (id, e) => {
     e.stopPropagation();
     setSelectedId(id);
+
+    // Clicking of action icons directly triggers action per requirements:
+    // linkedin -> redirect to linkedin
+    // github -> redirect to github
+    // camera -> open camera window
+    // youtube -> open youtube window
+    if (id === 'linkedin' || id === 'github' || id === 'camera' || id === 'youtube') {
+      if (onOpenIcon) {
+        onOpenIcon(id, e);
+      }
+    }
   };
 
   const handleOpen = (id, e) => {
