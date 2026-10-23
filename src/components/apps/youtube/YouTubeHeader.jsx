@@ -8,9 +8,18 @@ const YouTubeHeader = ({ onSearch, initialQuery = '' }) => {
   const [query, setQuery] = useState(initialQuery);
 
   const handleSubmit = (e) => {
-    e.preventDefault();
+    if (e && e.preventDefault) {
+      e.preventDefault();
+    }
     if (onSearch) {
       onSearch(query.trim());
+    }
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      handleSubmit(e);
     }
   };
 
@@ -34,6 +43,7 @@ const YouTubeHeader = ({ onSearch, initialQuery = '' }) => {
       {/* Left: YouTube Brand Logo */}
       <div
         data-testid="youtube-logo"
+        onClick={() => onSearch && onSearch('')}
         style={{
           display: 'flex',
           alignItems: 'center',
@@ -91,6 +101,14 @@ const YouTubeHeader = ({ onSearch, initialQuery = '' }) => {
           data-testid="youtube-search-input"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          onKeyDown={handleKeyDown}
+          onPaste={(e) => {
+            const pastedText = e.clipboardData?.getData('text');
+            if (pastedText && onSearch) {
+              setQuery(pastedText.trim());
+              onSearch(pastedText.trim());
+            }
+          }}
           placeholder="Search YouTube or paste URL..."
           aria-label="Search YouTube or paste URL"
           style={{

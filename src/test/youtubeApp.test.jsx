@@ -70,6 +70,39 @@ describe('Phase 10: Native YouTube Application', () => {
       expect(screen.getByTestId('player-video-title').textContent).toContain('Special Trending Funny Comedy Video 2026');
     });
 
+    it('shows and plays the funny dancing video when Enter is pressed with no search letter query typed', () => {
+      render(<YouTubeApp />);
+
+      const searchInput = screen.getByTestId('youtube-search-input');
+
+      // Initially empty player
+      expect(screen.getByTestId('youtube-empty-player')).toBeTruthy();
+
+      // Hit enter with NO search query typed
+      fireEvent.keyDown(searchInput, { key: 'Enter', code: 'Enter' });
+
+      // Player becomes active and plays the funny dancing video
+      expect(screen.getByTestId('youtube-active-player')).toBeTruthy();
+      expect(screen.getByTestId('player-video-title').textContent).toContain('Funny Dancing Video');
+
+      // 15 results rendered in sidebar
+      expect(screen.getByTestId('youtube-sidebar-results')).toBeTruthy();
+      expect(screen.getByTestId('youtube-result-item-trending-funny-2026')).toBeTruthy();
+    });
+
+    it('shows and plays the funny dancing video when submit button is clicked with empty query', () => {
+      render(<YouTubeApp />);
+
+      const searchSubmit = screen.getByTestId('youtube-search-submit');
+
+      // Click search submit button with empty query
+      fireEvent.click(searchSubmit);
+
+      // Player becomes active and plays the funny dancing video
+      expect(screen.getByTestId('youtube-active-player')).toBeTruthy();
+      expect(screen.getByTestId('player-video-title').textContent).toContain('Funny Dancing Video');
+    });
+
     it('switches active video when clicking another card in the sidebar', () => {
       render(<YouTubeApp />);
 
@@ -83,6 +116,95 @@ describe('Phase 10: Native YouTube Application', () => {
 
       // Active player switches to second video
       expect(screen.getByTestId('player-video-title').textContent).toContain('2 Ziddi Pregnant Bow');
+    });
+
+    it('shows results matching search query input and plays the first video automatically', () => {
+      render(<YouTubeApp />);
+
+      const searchInput = screen.getByTestId('youtube-search-input');
+      const searchSubmit = screen.getByTestId('youtube-search-submit');
+
+      // Search for custom keyword "React Tutorial"
+      fireEvent.change(searchInput, { target: { value: 'React Tutorial' } });
+      fireEvent.click(searchSubmit);
+
+      // Sidebar results contain search query
+      expect(screen.getByTestId('youtube-sidebar-results')).toBeTruthy();
+      expect(screen.getByText('SEARCH RESULTS')).toBeTruthy();
+
+      // Check first result title contains "React"
+      const firstResultTitle = screen.getAllByText(/React/i)[0];
+      expect(firstResultTitle).toBeTruthy();
+
+      // First video from search results is automatically active in player
+      expect(screen.getByTestId('youtube-active-player')).toBeTruthy();
+      expect(screen.getByTestId('player-video-title').textContent).toContain('React');
+    });
+
+    it('generates dynamic search results for any arbitrary query and plays the first video', () => {
+      render(<YouTubeApp />);
+
+      const searchInput = screen.getByTestId('youtube-search-input');
+
+      // Search for custom query "Interstellar Soundtrack"
+      fireEvent.change(searchInput, { target: { value: 'Interstellar Soundtrack' } });
+      fireEvent.submit(searchInput);
+
+      // Active player displays the first generated result for this input
+      expect(screen.getByTestId('youtube-active-player')).toBeTruthy();
+      expect(screen.getByTestId('player-video-title').textContent).toContain('Interstellar Soundtrack');
+    });
+
+    it('searches for tamil song and returns 15 relevant results with first video playing', () => {
+      render(<YouTubeApp />);
+
+      const searchInput = screen.getByTestId('youtube-search-input');
+      const searchSubmit = screen.getByTestId('youtube-search-submit');
+
+      // Search for "tamil song" matching user request in line 140 of prompt.md
+      fireEvent.change(searchInput, { target: { value: 'tamil song' } });
+      fireEvent.click(searchSubmit);
+
+      // Sidebar results display 15 results
+      expect(screen.getByTestId('youtube-sidebar-results')).toBeTruthy();
+      expect(screen.getByText('SEARCH RESULTS')).toBeTruthy();
+      expect(screen.getByText('15 results')).toBeTruthy();
+
+      // Check first video is Arabic Kuthu
+      expect(screen.getByTestId('youtube-result-item-tamil-1')).toBeTruthy();
+      expect(screen.getByTestId('youtube-title-tamil-1').textContent).toContain('Arabic Kuthu');
+
+      // Check first video thumbnail is authentic YouTube thumbnail
+      const thumbImg = screen.getByTestId('youtube-thumb-tamil-1');
+      expect(thumbImg.getAttribute('src')).toContain('KUN5Uf9mObQ/hqdefault.jpg');
+
+      // First video is automatically playing in the active player with real video ID
+      expect(screen.getByTestId('youtube-active-player')).toBeTruthy();
+      expect(screen.getByTestId('player-video-title').textContent).toContain('Arabic Kuthu');
+      const playerIframe = screen.getByTestId('youtube-iframe');
+      expect(playerIframe.getAttribute('src')).toContain('KUN5Uf9mObQ');
+
+      // Multiple other Tamil songs are available in the 15 results (e.g. Rowdy Baby, Vaathi Coming, Hukum)
+      expect(screen.getByTestId('youtube-result-item-tamil-2')).toBeTruthy();
+      expect(screen.getByTestId('youtube-result-item-tamil-3')).toBeTruthy();
+      expect(screen.getByTestId('youtube-result-item-tamil-6')).toBeTruthy();
+      expect(screen.getByTestId('youtube-result-item-tamil-15')).toBeTruthy();
+    });
+
+    it('ensures video player does not render duplicate fake progress bar', () => {
+      render(<YouTubeApp />);
+
+      const searchInput = screen.getByTestId('youtube-search-input');
+      fireEvent.change(searchInput, { target: { value: 'tamil song' } });
+      fireEvent.submit(searchInput);
+
+      // The active player is rendered with iframe
+      expect(screen.getByTestId('youtube-active-player')).toBeTruthy();
+      expect(screen.getByTestId('youtube-iframe')).toBeTruthy();
+
+      // The player overlay should only have top banner and NO fake static scrubber track
+      const overlay = screen.getByTestId('youtube-player-overlay');
+      expect(overlay.textContent).not.toContain('0:01 /');
     });
 
     it('plays video directly when a valid YouTube URL is pasted', () => {

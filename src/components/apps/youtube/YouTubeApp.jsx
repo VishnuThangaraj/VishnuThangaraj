@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import YouTubeHeader from './YouTubeHeader';
 import YouTubePlayer from './YouTubePlayer';
 import YouTubeSidebar from './YouTubeSidebar';
-import { PRESET_VIDEOS, extractYouTubeId } from './youtubeData';
+import { PRESET_VIDEOS, searchYouTubeVideos } from './youtubeData';
 
 /**
  * Native YouTube Desktop Application
@@ -15,44 +15,19 @@ const YouTubeApp = () => {
 
   // Search or Paste URL Execution
   const handleSearch = (query) => {
-    if (!query) return;
+    // If the enter button is hit with no search letter query typed, show the funny dancing video
+    const trimmed = query && typeof query === 'string' ? query.trim() : '';
 
-    // 1. Check if query is a direct YouTube URL or raw video ID
-    const extractedId = extractYouTubeId(query);
+    // Search or generate results matching the input query (or defaults to funny dancing video)
+    const results = searchYouTubeVideos(trimmed);
 
-    if (extractedId) {
-      const pastedVideo = {
-        id: `pasted-${extractedId}`,
-        youtubeId: extractedId,
-        title: `YouTube Video (${extractedId})`,
-        channel: 'YouTube Video',
-        duration: 'Playing',
-        thumbnail: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=320&q=80',
-      };
-
-      setActiveVideo(pastedVideo);
-      setSearchResults([pastedVideo, ...PRESET_VIDEOS]);
-      setHasSearched(true);
-      return;
-    }
-
-    // 2. Keyword Search: surfaces matching videos or reference catalog
-    const lower = query.toLowerCase();
-    const matched = PRESET_VIDEOS.filter(
-      (v) =>
-        v.title.toLowerCase().includes(lower) ||
-        v.channel.toLowerCase().includes(lower) ||
-        lower.includes('funny') ||
-        lower.includes('comedy') ||
-        lower.includes('video')
-    );
-
-    const finalResults = matched.length > 0 ? matched : PRESET_VIDEOS;
-
-    setSearchResults(finalResults);
+    setSearchResults(results);
     setHasSearched(true);
-    // Select first matched video as active (matching reference/youtube-result.png)
-    setActiveVideo(finalResults[0]);
+
+    // The first video from the search result should be played
+    if (results.length > 0) {
+      setActiveVideo(results[0]);
+    }
   };
 
   const handleSelectVideo = (video) => {

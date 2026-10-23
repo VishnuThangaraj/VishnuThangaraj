@@ -2,7 +2,7 @@ import React from 'react';
 
 /**
  * YouTube Search Results Sidebar Component
- * Matches reference/youtube-open.png (empty state) & reference/youtube-result.png (search results list)
+ * Displays 15 relevant scrollable video cards matching reference/youtube-result.png.
  */
 const YouTubeSidebar = ({
   results = [],
@@ -44,7 +44,7 @@ const YouTubeSidebar = ({
     );
   }
 
-  // 2. Populated Search Results List matching reference/youtube-result.png
+  // 2. Populated Scrollable Search Results List (15 Results)
   return (
     <aside
       className="macos-youtube-sidebar results"
@@ -71,12 +71,22 @@ const YouTubeSidebar = ({
           color: '#606060',
           letterSpacing: '0.6px',
           fontFamily: '-apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif',
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          position: 'sticky',
+          top: 0,
+          backgroundColor: '#ffffff',
+          zIndex: 5,
         }}
       >
-        SEARCH RESULTS
+        <span>SEARCH RESULTS</span>
+        <span style={{ fontSize: '10.5px', color: '#909090', fontWeight: 500 }}>
+          {results.length} results
+        </span>
       </div>
 
-      {/* Cards List */}
+      {/* 15 Scrollable Cards List */}
       <div
         style={{
           display: 'flex',
@@ -103,7 +113,7 @@ const YouTubeSidebar = ({
                 transition: 'background-color 0.12s ease',
               }}
             >
-              {/* Thumbnail with centered play overlay */}
+              {/* Thumbnail with duration badge and centered play overlay */}
               <div
                 style={{
                   width: '106px',
@@ -117,7 +127,8 @@ const YouTubeSidebar = ({
                 }}
               >
                 <img
-                  src={video.thumbnail}
+                  data-testid={`youtube-thumb-${video.id}`}
+                  src={video.thumbnail || `https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
                   alt={video.title}
                   style={{
                     width: '100%',
@@ -125,7 +136,9 @@ const YouTubeSidebar = ({
                     objectFit: 'cover',
                   }}
                   onError={(e) => {
-                    e.currentTarget.style.display = 'none';
+                    if (video.youtubeId && !e.currentTarget.src.includes('mqdefault')) {
+                      e.currentTarget.src = `https://img.youtube.com/vi/${video.youtubeId}/mqdefault.jpg`;
+                    }
                   }}
                 />
 
@@ -157,6 +170,25 @@ const YouTubeSidebar = ({
                     </svg>
                   </div>
                 </div>
+
+                {/* Duration Badge */}
+                {video.duration && (
+                  <span
+                    style={{
+                      position: 'absolute',
+                      bottom: '4px',
+                      right: '4px',
+                      backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                      color: '#ffffff',
+                      fontSize: '9.5px',
+                      fontWeight: 600,
+                      padding: '1px 3.5px',
+                      borderRadius: '3px',
+                    }}
+                  >
+                    {video.duration}
+                  </span>
+                )}
               </div>
 
               {/* Title & Channel Subtitle */}
@@ -197,6 +229,18 @@ const YouTubeSidebar = ({
                 >
                   {video.channel}
                 </span>
+
+                {video.views && (
+                  <span
+                    style={{
+                      fontSize: '10.5px',
+                      color: '#8e8e93',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {video.views}
+                  </span>
+                )}
               </div>
             </div>
           );
